@@ -38,25 +38,18 @@ if (homePage && !homePage.querySelector('.about-fan-app')) {
 }
 
 const callPage = document.getElementById('call');
-if (callPage && !callPage.querySelector('.original-song-guide')) {
-  const guide = document.createElement('section');
-  guide.className = 'section-block original-song-guide';
-  guide.innerHTML = `
-    <div class="section-heading"><h2>ORIGINAL SONGS</h2><span>オリジナル曲</span></div>
-    <article class="card" style="border:1px solid #6f4c8f;background:linear-gradient(145deg,rgba(139,92,190,.16),rgba(255,255,255,.025));">
-      <span class="badge">9/12 ミブ生誕で聴けます！</span>
-      <h3 style="margin:10px 0 6px">走りながら聴く曲</h3>
-      <p class="muted" style="margin:0 0 12px;font-size:11px;line-height:1.7">ミニワンマンで初披露されたオリジナル曲。ミブ生誕祭 ～壬生乱舞2026～ で披露予定！</p>
-      <a class="primary live-ticket" href="https://www.youtube.com/watch?v=XH0axVmtF8s" target="_blank" rel="noopener noreferrer">動画で聴く →</a>
-    </article>
-    <div style="display:grid;gap:9px;margin-top:12px">
-      ${['ちゅるん','ありんこ祭り','オシゴト','ニート☆スター','デストロちゃん'].map((song) => `<article class="card compact" style="padding:14px 16px"><p style="margin:0;font-size:13px;font-weight:800">${song}</p><p class="muted" style="margin:4px 0 0;font-size:10px">永遠のセツナ オリジナル曲</p></article>`).join('')}
-    </div>
-    <p class="notice" style="margin-top:10px">オリジナル曲は現在6曲掲載中。楽曲情報は順次追加予定です。</p>
+if (callPage && !callPage.querySelector('.song-entry-card')) {
+  const songEntry = document.createElement('article');
+  songEntry.className = 'card song-entry-card';
+  songEntry.innerHTML = `
+    <span class="badge">ORIGINAL SONGS</span>
+    <h3>永遠のセツナ 楽曲</h3>
+    <p>オリジナル曲6曲の情報、歌詞、配信・動画をまとめています。</p>
+    <a class="call-button" href="songs.html">楽曲ページを見る →</a>
   `;
-  const credit = callPage.querySelector('.call-credit');
-  if (credit) credit.insertAdjacentElement('afterend', guide);
-  else callPage.appendChild(guide);
+  const callHero = callPage.querySelector('.call-hero');
+  if (callHero) callHero.insertAdjacentElement('afterend', songEntry);
+  else callPage.appendChild(songEntry);
 }
 
 const videoPage = document.getElementById('video');
@@ -80,11 +73,21 @@ if (videoPage) {
 const navItems = document.querySelectorAll('.nav-item');
 const pages = document.querySelectorAll('.page');
 
+function showPage(target, smooth = true) {
+  const exists = [...pages].some((page) => page.id === target);
+  if (!exists) return;
+  pages.forEach((page) => page.classList.toggle('active', page.id === target));
+  navItems.forEach((nav) => nav.classList.toggle('active', nav.dataset.page === target));
+  window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
+}
+
 navItems.forEach((item) => {
   item.addEventListener('click', () => {
     const target = item.dataset.page;
-    pages.forEach((page) => page.classList.toggle('active', page.id === target));
-    navItems.forEach((nav) => nav.classList.toggle('active', nav === item));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    showPage(target);
+    history.replaceState(null, '', `#${target}`);
   });
 });
+
+const initialHash = location.hash.replace('#', '');
+if (initialHash) showPage(initialHash, false);
