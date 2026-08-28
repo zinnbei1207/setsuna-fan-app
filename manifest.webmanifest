@@ -1,0 +1,16 @@
+{
+  "name": "永遠のセツナ Fan App",
+  "short_name": "永遠のセツナ",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#16131d",
+  "theme_color": "#16131d",
+  "icons": [
+    {
+      "src": "apple-touch-icon.jpg",
+      "sizes": "180x180",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
