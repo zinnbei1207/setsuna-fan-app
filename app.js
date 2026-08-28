@@ -37,19 +37,19 @@ if (homePage && !homePage.querySelector('.about-fan-app')) {
   homePage.appendChild(about);
 }
 
-const callPage = document.getElementById('call');
-if (callPage && !callPage.querySelector('.song-entry-card')) {
-  const songEntry = document.createElement('article');
-  songEntry.className = 'card song-entry-card';
-  songEntry.innerHTML = `
-    <span class="badge">ORIGINAL SONGS</span>
-    <h3>永遠のセツナ 楽曲</h3>
-    <p>オリジナル曲6曲の情報、歌詞、配信・動画をまとめています。</p>
-    <a class="call-button" href="songs.html">楽曲ページを見る →</a>
-  `;
-  const callHero = callPage.querySelector('.call-hero');
-  if (callHero) callHero.insertAdjacentElement('afterend', songEntry);
-  else callPage.appendChild(songEntry);
+const bottomNav = document.querySelector('.bottom-nav');
+if (bottomNav && !bottomNav.querySelector('.song-nav-item')) {
+  const songLink = document.createElement('a');
+  songLink.className = 'nav-item song-nav-item';
+  songLink.href = 'songs.html';
+  songLink.setAttribute('aria-label', '楽曲');
+  songLink.innerHTML = '🎵<small>楽曲</small>';
+  const videoNav = bottomNav.querySelector('[data-page="video"]');
+  if (videoNav) bottomNav.insertBefore(songLink, videoNav);
+  else bottomNav.appendChild(songLink);
+
+  bottomNav.style.gridTemplateColumns = 'repeat(6, minmax(0, 1fr))';
+  songLink.style.textDecoration = 'none';
 }
 
 const videoPage = document.getElementById('video');
@@ -70,7 +70,7 @@ if (videoPage) {
   }
 }
 
-const navItems = document.querySelectorAll('.nav-item');
+const navItems = document.querySelectorAll('.nav-item[data-page]');
 const pages = document.querySelectorAll('.page');
 
 function showPage(target, smooth = true) {
