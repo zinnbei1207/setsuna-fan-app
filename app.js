@@ -24,17 +24,46 @@ appLinks.forEach((attrs) => {
 });
 
 const homePage = document.getElementById('home');
-if (homePage && !homePage.querySelector('.about-fan-app')) {
-  const about = document.createElement('section');
-  about.className = 'section-block about-fan-app';
-  about.innerHTML = `
-    <div class="section-heading"><h2>ABOUT THIS APP</h2><span>このアプリについて</span></div>
-    <article class="card compact">
-      <p style="margin:0;font-size:12px;font-weight:800;line-height:1.8">永遠のセツナをもっと楽しむために、ファンのジンベイが個人で制作・運営している非公式ファンアプリです。</p>
-      <p class="muted" style="margin:8px 0 0;font-size:11px;line-height:1.8">公式アプリではありません。ライブ予定などは変更される場合があるため、最新情報は公式告知もあわせてご確認ください。</p>
-    </article>
-  `;
-  homePage.appendChild(about);
+if (homePage) {
+  // 8/29の終了済み予定をホームから外し、8/30の変更後タイムテーブルを表示
+  const homeHeadings = [...homePage.querySelectorAll('.eyebrow')];
+  const todayHeading = homeHeadings.find((heading) => heading.textContent.trim() === "TODAY'S SCHEDULE");
+  if (todayHeading) {
+    let node = todayHeading.nextElementSibling;
+    while (node && node.matches('article.card.next-live')) {
+      const next = node.nextElementSibling;
+      node.remove();
+      node = next;
+    }
+    todayHeading.remove();
+  }
+
+  const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim() === 'NEXT LIVE');
+  if (nextHeading) {
+    nextHeading.textContent = 'NEXT LIVE';
+    const nextLive = nextHeading.nextElementSibling;
+    if (nextLive?.matches('article.card.next-live')) {
+      const badge = nextLive.querySelector('.badge');
+      if (badge) badge.textContent = '明日のLIVE';
+      const times = nextLive.querySelectorAll('.live-time');
+      if (times[0]) times[0].textContent = 'OPEN 09:00 / START 09:30';
+      if (times[1]) times[1].textContent = '① 🎤11:05–11:20 / 📸11:25–12:15';
+      if (times[2]) times[2].textContent = '② 🎤17:15–17:30 / 📸17:50–18:40';
+    }
+  }
+
+  if (!homePage.querySelector('.about-fan-app')) {
+    const about = document.createElement('section');
+    about.className = 'section-block about-fan-app';
+    about.innerHTML = `
+      <div class="section-heading"><h2>ABOUT THIS APP</h2><span>このアプリについて</span></div>
+      <article class="card compact">
+        <p style="margin:0;font-size:12px;font-weight:800;line-height:1.8">永遠のセツナをもっと楽しむために、ファンのジンベイが個人で制作・運営している非公式ファンアプリです。</p>
+        <p class="muted" style="margin:8px 0 0;font-size:11px;line-height:1.8">公式アプリではありません。ライブ予定などは変更される場合があるため、最新情報は公式告知もあわせてご確認ください。</p>
+      </article>
+    `;
+    homePage.appendChild(about);
+  }
 }
 
 const bottomNav = document.querySelector('.bottom-nav');
