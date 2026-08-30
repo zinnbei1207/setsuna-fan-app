@@ -25,7 +25,7 @@ appLinks.forEach((attrs) => {
 
 const homePage = document.getElementById('home');
 if (homePage) {
-  // 8/29の終了済み予定をホームから外し、8/30の変更後タイムテーブルを表示
+  // 終了済みの予定をホームから外し、次回9/5のLIVEを表示
   const homeHeadings = [...homePage.querySelectorAll('.eyebrow')];
   const todayHeading = homeHeadings.find((heading) => heading.textContent.trim() === "TODAY'S SCHEDULE");
   if (todayHeading) {
@@ -43,12 +43,17 @@ if (homePage) {
     nextHeading.textContent = 'NEXT LIVE';
     const nextLive = nextHeading.nextElementSibling;
     if (nextLive?.matches('article.card.next-live')) {
-      const badge = nextLive.querySelector('.badge');
-      if (badge) badge.textContent = '明日のLIVE';
-      const times = nextLive.querySelectorAll('.live-time');
-      if (times[0]) times[0].textContent = 'OPEN 09:00 / START 09:30';
-      if (times[1]) times[1].textContent = '① 🎤11:05–11:20 / 📸11:25–12:15';
-      if (times[2]) times[2].textContent = '② 🎤17:15–17:30 / 📸17:50–18:40';
+      nextLive.innerHTML = `
+        <div class="live-date"><strong>09.05</strong><span>SAT</span></div>
+        <span class="badge">🚨 重要LIVE</span>
+        <h3>Zepp de LIVE</h3>
+        <p class="live-place">📍 Zepp Namba</p>
+        <p class="muted live-time">OPEN 11:00 / START 11:30</p>
+        <p class="live-note">前方 ¥5,000 / 一般 ¥2,000（入場時1ドリンク必須）</p>
+        <p class="live-note"><strong>※ミブ休演</strong><br>※9/5の2回しはいずれもミブ休演予定です。</p>
+        <p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p>
+        <p class="muted live-time">※タイムテーブルは後日公開</p>
+      `;
     }
   }
 
@@ -63,6 +68,31 @@ if (homePage) {
       </article>
     `;
     homePage.appendChild(about);
+  }
+}
+
+const livePage = document.getElementById('live');
+if (livePage) {
+  const liveList = livePage.querySelector('.live-list');
+  if (liveList) {
+    liveList.querySelectorAll('.sep05-live').forEach((item) => item.remove());
+    const sep05 = document.createElement('article');
+    sep05.className = 'card live-card sep05-live';
+    sep05.style.marginBottom = '14px';
+    sep05.innerHTML = `
+      <div class="live-card-top">
+        <div class="live-date"><strong>09.05</strong><span>SAT</span></div>
+        <span class="badge">🚨重要LIVE</span>
+      </div>
+      <h3>Zepp de LIVE</h3>
+      <p class="live-place">📍 Zepp Namba</p>
+      <p class="muted live-time">OPEN 11:00 / START 11:30</p>
+      <p class="live-note">前方 ¥5,000 / 一般 ¥2,000（入場時1ドリンク必須）</p>
+      <p class="live-note"><strong>※ミブ休演</strong><br>※9/5の2回しはいずれもミブ休演予定です。</p>
+      <p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p>
+      <p class="muted live-time">※タイムテーブルは後日公開</p>
+    `;
+    liveList.prepend(sep05);
   }
 }
 
