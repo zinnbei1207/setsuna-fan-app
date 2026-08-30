@@ -44,6 +44,7 @@ const sep05Zepp = `
   <p class="live-note"><strong>※ミブ休演</strong></p>
   <p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p>
   <p class="muted live-time">※タイムテーブルは後日公開</p>
+  <a class="primary live-ticket" href="https://ticketdive.com/event/zeppdelive0905" target="_blank" rel="noopener noreferrer">チケットを見る →</a>
 `;
 
 const homePage = document.getElementById('home');
@@ -105,7 +106,7 @@ if (livePage) {
     const zepp = document.createElement('article');
     zepp.className = 'card live-card sep05-live birthday-schedule';
     zepp.style.marginBottom = '14px';
-    zepp.innerHTML = `<div class="live-card-top"><div class="live-date"><strong>09.05</strong><span>SAT</span></div><span class="badge">🚨重要LIVE</span></div><h3>Zepp de LIVE</h3><p class="live-place">📍 Zepp Namba</p><p class="muted live-time">OPEN 11:00 / START 11:30</p><p class="live-note">前方 ¥5,000 / 一般 ¥2,000（入場時1ドリンク必須）</p><p class="live-note"><strong>※ミブ休演</strong></p><p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p><p class="muted live-time">※タイムテーブルは後日公開</p>`;
+    zepp.innerHTML = `<div class="live-card-top"><div class="live-date"><strong>09.05</strong><span>SAT</span></div><span class="badge">🚨重要LIVE</span></div><h3>Zepp de LIVE</h3><p class="live-place">📍 Zepp Namba</p><p class="muted live-time">OPEN 11:00 / START 11:30</p><p class="live-note">前方 ¥5,000 / 一般 ¥2,000（入場時1ドリンク必須）</p><p class="live-note"><strong>※ミブ休演</strong></p><p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p><p class="muted live-time">※タイムテーブルは後日公開</p><a class="primary live-ticket" href="https://ticketdive.com/event/zeppdelive0905" target="_blank" rel="noopener noreferrer">チケットを見る →</a>`;
 
     liveList.prepend(zepp);
     liveList.prepend(otsu);
