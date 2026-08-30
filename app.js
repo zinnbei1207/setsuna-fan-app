@@ -23,9 +23,31 @@ appLinks.forEach((attrs) => {
   document.head.appendChild(meta);
 });
 
+const sep05Otsu = `
+  <div class="live-date"><strong>09.05</strong><span>SAT</span></div>
+  <span class="badge">LIVE</span>
+  <h3>OTSU STREET FESTA!</h3>
+  <p class="live-place">📍 JR大津駅前広場</p>
+  <p class="muted live-time">START 10:00</p>
+  <p class="muted live-time">🎤 14:30–14:50 / 📸 14:55–15:55</p>
+  <p class="live-note">観覧無料 / 撮影パス 各部 ¥1,000 / 優先エリア 各部 ¥1,000</p>
+  <p class="live-note">※館外のため雨天中止<br><strong>※ミブ休演</strong></p>
+`;
+
+const sep05Zepp = `
+  <div class="live-date"><strong>09.05</strong><span>SAT</span></div>
+  <span class="badge">🚨 重要LIVE</span>
+  <h3>Zepp de LIVE</h3>
+  <p class="live-place">📍 Zepp Namba</p>
+  <p class="muted live-time">OPEN 11:00 / START 11:30</p>
+  <p class="live-note">前方 ¥5,000 / 一般 ¥2,000（入場時1ドリンク必須）</p>
+  <p class="live-note"><strong>※ミブ休演</strong></p>
+  <p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p>
+  <p class="muted live-time">※タイムテーブルは後日公開</p>
+`;
+
 const homePage = document.getElementById('home');
 if (homePage) {
-  // 終了済みの予定をホームから外し、次回9/5のLIVEを表示
   const homeHeadings = [...homePage.querySelectorAll('.eyebrow')];
   const todayHeading = homeHeadings.find((heading) => heading.textContent.trim() === "TODAY'S SCHEDULE");
   if (todayHeading) {
@@ -40,20 +62,18 @@ if (homePage) {
 
   const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim() === 'NEXT LIVE');
   if (nextHeading) {
-    nextHeading.textContent = 'NEXT LIVE';
-    const nextLive = nextHeading.nextElementSibling;
+    nextHeading.textContent = 'NEXT LIVE · 9/5 2回し';
+    let nextLive = nextHeading.nextElementSibling;
     if (nextLive?.matches('article.card.next-live')) {
-      nextLive.innerHTML = `
-        <div class="live-date"><strong>09.05</strong><span>SAT</span></div>
-        <span class="badge">🚨 重要LIVE</span>
-        <h3>Zepp de LIVE</h3>
-        <p class="live-place">📍 Zepp Namba</p>
-        <p class="muted live-time">OPEN 11:00 / START 11:30</p>
-        <p class="live-note">前方 ¥5,000 / 一般 ¥2,000（入場時1ドリンク必須）</p>
-        <p class="live-note"><strong>※ミブ休演</strong><br>※9/5の2回しはいずれもミブ休演予定です。</p>
-        <p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p>
-        <p class="muted live-time">※タイムテーブルは後日公開</p>
-      `;
+      nextLive.innerHTML = sep05Otsu;
+      let zeppCard = nextLive.nextElementSibling;
+      if (!zeppCard?.classList.contains('sep05-zepp-home')) {
+        zeppCard = document.createElement('article');
+        zeppCard.className = 'card next-live sep05-zepp-home';
+        zeppCard.style.marginTop = '14px';
+        nextLive.after(zeppCard);
+      }
+      zeppCard.innerHTML = sep05Zepp;
     }
   }
 
@@ -76,23 +96,19 @@ if (livePage) {
   const liveList = livePage.querySelector('.live-list');
   if (liveList) {
     liveList.querySelectorAll('.sep05-live').forEach((item) => item.remove());
-    const sep05 = document.createElement('article');
-    sep05.className = 'card live-card sep05-live';
-    sep05.style.marginBottom = '14px';
-    sep05.innerHTML = `
-      <div class="live-card-top">
-        <div class="live-date"><strong>09.05</strong><span>SAT</span></div>
-        <span class="badge">🚨重要LIVE</span>
-      </div>
-      <h3>Zepp de LIVE</h3>
-      <p class="live-place">📍 Zepp Namba</p>
-      <p class="muted live-time">OPEN 11:00 / START 11:30</p>
-      <p class="live-note">前方 ¥5,000 / 一般 ¥2,000（入場時1ドリンク必須）</p>
-      <p class="live-note"><strong>※ミブ休演</strong><br>※9/5の2回しはいずれもミブ休演予定です。</p>
-      <p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p>
-      <p class="muted live-time">※タイムテーブルは後日公開</p>
-    `;
-    liveList.prepend(sep05);
+
+    const otsu = document.createElement('article');
+    otsu.className = 'card live-card sep05-live';
+    otsu.style.marginBottom = '14px';
+    otsu.innerHTML = `<div class="live-card-top"><div class="live-date"><strong>09.05</strong><span>SAT</span></div><span class="badge">LIVE</span></div><h3>OTSU STREET FESTA!</h3><p class="live-place">📍 JR大津駅前広場</p><p class="muted live-time">START 10:00</p><p class="muted live-time">🎤 14:30–14:50 / 📸 14:55–15:55</p><p class="live-note">観覧無料 / 撮影パス 各部 ¥1,000 / 優先エリア 各部 ¥1,000</p><p class="live-note">※館外のため雨天中止<br><strong>※ミブ休演</strong></p>`;
+
+    const zepp = document.createElement('article');
+    zepp.className = 'card live-card sep05-live birthday-schedule';
+    zepp.style.marginBottom = '14px';
+    zepp.innerHTML = `<div class="live-card-top"><div class="live-date"><strong>09.05</strong><span>SAT</span></div><span class="badge">🚨重要LIVE</span></div><h3>Zepp de LIVE</h3><p class="live-place">📍 Zepp Namba</p><p class="muted live-time">OPEN 11:00 / START 11:30</p><p class="live-note">前方 ¥5,000 / 一般 ¥2,000（入場時1ドリンク必須）</p><p class="live-note"><strong>※ミブ休演</strong></p><p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p><p class="muted live-time">※タイムテーブルは後日公開</p>`;
+
+    liveList.prepend(zepp);
+    liveList.prepend(otsu);
   }
 }
 
