@@ -57,6 +57,16 @@ const sep06Kyoto = `
   <p class="live-note">観覧無料</p>
 `;
 
+const sep06Idolpack = `
+  <div class="live-date"><strong>09.06</strong><span>SUN</span></div>
+  <span class="badge">LIVE</span>
+  <h3>idolpack</h3>
+  <p class="live-place">📍 南堀江ビレボア</p>
+  <p class="muted live-time">OPEN 16:20 / START 16:40</p>
+  <p class="live-note">優先 ¥2,500 / 一般 ¥1,000（1ドリンク別）</p>
+  <a class="primary live-ticket" href="https://ticketdive.com/event/ip0906" target="_blank" rel="noopener noreferrer">チケットを見る →</a>
+`;
+
 const sep06Smile = `
   <div class="live-date"><strong>09.06</strong><span>SUN</span></div>
   <span class="badge">LIVE</span>
@@ -107,12 +117,21 @@ if (homePage) {
       }
       kyotoCard.innerHTML = sep06Kyoto;
 
-      let smileCard = kyotoCard.nextElementSibling;
+      let idolpackCard = kyotoCard.nextElementSibling;
+      if (!idolpackCard?.classList.contains('sep06-idolpack-home')) {
+        idolpackCard = document.createElement('article');
+        idolpackCard.className = 'card next-live sep06-idolpack-home';
+        idolpackCard.style.marginTop = '14px';
+        kyotoCard.after(idolpackCard);
+      }
+      idolpackCard.innerHTML = sep06Idolpack;
+
+      let smileCard = idolpackCard.nextElementSibling;
       if (!smileCard?.classList.contains('sep06-smile-home')) {
         smileCard = document.createElement('article');
         smileCard.className = 'card next-live sep06-smile-home';
         smileCard.style.marginTop = '14px';
-        kyotoCard.after(smileCard);
+        idolpackCard.after(smileCard);
       }
       smileCard.innerHTML = sep06Smile;
     }
