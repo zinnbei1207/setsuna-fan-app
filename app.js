@@ -47,6 +47,27 @@ const sep05Zepp = `
   <a class="primary live-ticket" href="https://ticketdive.com/event/zeppdelive0905" target="_blank" rel="noopener noreferrer">チケットを見る →</a>
 `;
 
+const sep06Kyoto = `
+  <div class="live-date"><strong>09.06</strong><span>SUN</span></div>
+  <span class="badge">LIVE</span>
+  <h3>京コレDream festa!</h3>
+  <p class="live-place">📍 ローム・スクエア（ロームシアター京都）</p>
+  <p class="muted live-time">10:00–19:00</p>
+  <p class="muted live-time">🎤 11:05–11:20 / 📸 11:20–12:10</p>
+  <p class="live-note">観覧無料</p>
+`;
+
+const sep06Smile = `
+  <div class="live-date"><strong>09.06</strong><span>SUN</span></div>
+  <span class="badge">LIVE</span>
+  <h3>はっぴーすまいるᵕ̈*</h3>
+  <p class="live-place">📍 ナンバーゲート</p>
+  <p class="muted live-time">OPEN 16:10 / START 16:30</p>
+  <p class="muted live-time">🎤 19:55–20:15 / 📸 21:00–22:00</p>
+  <p class="live-note">前売り ¥2,600 / 当日 ¥3,100（D込）</p>
+  <a class="primary live-ticket" href="https://ticketdive.com/event/smile96" target="_blank" rel="noopener noreferrer">チケットを見る →</a>
+`;
+
 const homePage = document.getElementById('home');
 if (homePage) {
   const homeHeadings = [...homePage.querySelectorAll('.eyebrow')];
@@ -63,10 +84,11 @@ if (homePage) {
 
   const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim() === 'NEXT LIVE');
   if (nextHeading) {
-    nextHeading.textContent = 'NEXT LIVE · 9/5 2回し';
+    nextHeading.textContent = 'NEXT LIVE · 9/5–9/6';
     let nextLive = nextHeading.nextElementSibling;
     if (nextLive?.matches('article.card.next-live')) {
       nextLive.innerHTML = sep05Otsu;
+
       let zeppCard = nextLive.nextElementSibling;
       if (!zeppCard?.classList.contains('sep05-zepp-home')) {
         zeppCard = document.createElement('article');
@@ -75,6 +97,24 @@ if (homePage) {
         nextLive.after(zeppCard);
       }
       zeppCard.innerHTML = sep05Zepp;
+
+      let kyotoCard = zeppCard.nextElementSibling;
+      if (!kyotoCard?.classList.contains('sep06-kyoto-home')) {
+        kyotoCard = document.createElement('article');
+        kyotoCard.className = 'card next-live sep06-kyoto-home';
+        kyotoCard.style.marginTop = '14px';
+        zeppCard.after(kyotoCard);
+      }
+      kyotoCard.innerHTML = sep06Kyoto;
+
+      let smileCard = kyotoCard.nextElementSibling;
+      if (!smileCard?.classList.contains('sep06-smile-home')) {
+        smileCard = document.createElement('article');
+        smileCard.className = 'card next-live sep06-smile-home';
+        smileCard.style.marginTop = '14px';
+        kyotoCard.after(smileCard);
+      }
+      smileCard.innerHTML = sep06Smile;
     }
   }
 
