@@ -47,6 +47,17 @@ const sep05Zepp = `
   <a class="primary live-ticket" href="https://ticketdive.com/event/zeppdelive0905" target="_blank" rel="noopener noreferrer">チケットを見る →</a>
 `;
 
+const sep06Kanda = `
+  <div class="live-date"><strong>09.06</strong><span>SUN</span></div>
+  <span class="badge">LIVE</span>
+  <h3>永遠のセツナライブ</h3>
+  <p class="live-place">📍 神田F#</p>
+  <p class="muted live-time">OPEN 10:00 / START 10:30</p>
+  <p class="muted live-time">🎤 10:30–11:00 / 📸 11:00–11:50</p>
+  <p class="live-note">入場無料（1オーダー）</p>
+  <a class="primary live-ticket" href="https://tiget.net/events/429206" target="_blank" rel="noopener noreferrer">チケットを見る →</a>
+`;
+
 const homePage = document.getElementById('home');
 if (homePage) {
   const homeHeadings = [...homePage.querySelectorAll('.eyebrow')];
@@ -63,10 +74,11 @@ if (homePage) {
 
   const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim() === 'NEXT LIVE');
   if (nextHeading) {
-    nextHeading.textContent = 'NEXT LIVE · 9/5 2回し';
+    nextHeading.textContent = 'NEXT LIVE · 9/5–9/6';
     let nextLive = nextHeading.nextElementSibling;
     if (nextLive?.matches('article.card.next-live')) {
       nextLive.innerHTML = sep05Otsu;
+
       let zeppCard = nextLive.nextElementSibling;
       if (!zeppCard?.classList.contains('sep05-zepp-home')) {
         zeppCard = document.createElement('article');
@@ -75,6 +87,15 @@ if (homePage) {
         nextLive.after(zeppCard);
       }
       zeppCard.innerHTML = sep05Zepp;
+
+      let sundayCard = zeppCard.nextElementSibling;
+      if (!sundayCard?.classList.contains('sep06-home')) {
+        sundayCard = document.createElement('article');
+        sundayCard.className = 'card next-live sep06-home';
+        sundayCard.style.marginTop = '14px';
+        zeppCard.after(sundayCard);
+      }
+      sundayCard.innerHTML = sep06Kanda;
     }
   }
 
