@@ -26,12 +26,12 @@ appLinks.forEach((attrs) => {
 const sep05Otsu = `
   <div class="live-date"><strong>09.05</strong><span>SAT</span></div>
   <span class="badge">LIVE</span>
-  <h3>OTSU STREET FESTA!</h3>
-  <p class="live-place">📍 JR大津駅前広場</p>
+  <h3>STREET FESTA! @SPAWORLD</h3>
+  <p class="live-place">📍 スパワールド</p>
   <p class="muted live-time">START 10:00</p>
   <p class="muted live-time">🎤 14:30–14:50 / 📸 14:55–15:55</p>
   <p class="live-note">観覧無料 / 撮影パス 各部 ¥1,000 / 優先エリア 各部 ¥1,000</p>
-  <p class="live-note">※館外のため雨天中止<br><strong>※ミブ休演</strong></p>
+  <p class="live-note"><strong>※天候不順によりJR大津駅前広場から会場変更</strong><br><strong>※ミブ休演</strong></p>
 `;
 
 const sep05Zepp = `
@@ -160,7 +160,7 @@ if (livePage) {
     const otsu = document.createElement('article');
     otsu.className = 'card live-card sep05-live';
     otsu.style.marginBottom = '14px';
-    otsu.innerHTML = `<div class="live-card-top"><div class="live-date"><strong>09.05</strong><span>SAT</span></div><span class="badge">LIVE</span></div><h3>OTSU STREET FESTA!</h3><p class="live-place">📍 JR大津駅前広場</p><p class="muted live-time">START 10:00</p><p class="muted live-time">🎤 14:30–14:50 / 📸 14:55–15:55</p><p class="live-note">観覧無料 / 撮影パス 各部 ¥1,000 / 優先エリア 各部 ¥1,000</p><p class="live-note">※館外のため雨天中止<br><strong>※ミブ休演</strong></p>`;
+    otsu.innerHTML = `<div class="live-card-top"><div class="live-date"><strong>09.05</strong><span>SAT</span></div><span class="badge">LIVE</span></div><h3>STREET FESTA! @SPAWORLD</h3><p class="live-place">📍 スパワールド</p><p class="muted live-time">START 10:00</p><p class="muted live-time">🎤 14:30–14:50 / 📸 14:55–15:55</p><p class="live-note">観覧無料 / 撮影パス 各部 ¥1,000 / 優先エリア 各部 ¥1,000</p><p class="live-note"><strong>※天候不順によりJR大津駅前広場から会場変更</strong><br><strong>※ミブ休演</strong></p>`;
 
     const zepp = document.createElement('article');
     zepp.className = 'card live-card sep05-live birthday-schedule';
