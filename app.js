@@ -23,30 +23,6 @@ appLinks.forEach((attrs) => {
   document.head.appendChild(meta);
 });
 
-const sep05Otsu = `
-  <div class="live-date"><strong>09.05</strong><span>SAT</span></div>
-  <span class="badge">LIVE</span>
-  <h3>STREET FESTA! @SPAWORLD</h3>
-  <p class="live-place">📍 スパワールド</p>
-  <p class="muted live-time">START 10:00</p>
-  <p class="muted live-time">🎤 14:30–14:50 / 📸 14:55–15:55</p>
-  <p class="live-note">観覧無料 / 撮影パス 各部 ¥1,000 / 優先エリア 各部 ¥1,000</p>
-  <p class="live-note"><strong>※天候不順によりJR大津駅前広場から会場変更</strong><br><strong>※ミブ休演</strong></p>
-`;
-
-const sep05Zepp = `
-  <div class="live-date"><strong>09.05</strong><span>SAT</span></div>
-  <span class="badge">🚨 重要LIVE</span>
-  <h3>Zepp de LIVE</h3>
-  <p class="live-place">📍 Zepp Namba</p>
-  <p class="muted live-time">OPEN 11:00 / START 11:30</p>
-  <p class="live-note">前方 ¥5,000 / 一般 ¥2,000（入場時1ドリンク必須）</p>
-  <p class="live-note"><strong>※ミブ休演</strong></p>
-  <p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p>
-  <p class="muted live-time">※タイムテーブルは後日公開</p>
-  <a class="primary live-ticket" href="https://ticketdive.com/event/zeppdelive0905" target="_blank" rel="noopener noreferrer">チケットを見る →</a>
-`;
-
 const sep06Kyoto = `
   <div class="live-date"><strong>09.06</strong><span>SUN</span></div>
   <span class="badge">LIVE</span>
@@ -94,35 +70,18 @@ if (homePage) {
 
   const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim() === 'NEXT LIVE');
   if (nextHeading) {
-    nextHeading.textContent = 'NEXT LIVE · 9/5–9/6';
+    nextHeading.textContent = 'NEXT LIVE · 9/6';
     let nextLive = nextHeading.nextElementSibling;
     if (nextLive?.matches('article.card.next-live')) {
-      nextLive.innerHTML = sep05Otsu;
+      nextLive.innerHTML = sep06Kyoto;
+      nextLive.classList.remove('sep05-zepp-home', 'sep06-idolpack-home', 'sep06-smile-home');
 
-      let zeppCard = nextLive.nextElementSibling;
-      if (!zeppCard?.classList.contains('sep05-zepp-home')) {
-        zeppCard = document.createElement('article');
-        zeppCard.className = 'card next-live sep05-zepp-home';
-        zeppCard.style.marginTop = '14px';
-        nextLive.after(zeppCard);
-      }
-      zeppCard.innerHTML = sep05Zepp;
-
-      let kyotoCard = zeppCard.nextElementSibling;
-      if (!kyotoCard?.classList.contains('sep06-kyoto-home')) {
-        kyotoCard = document.createElement('article');
-        kyotoCard.className = 'card next-live sep06-kyoto-home';
-        kyotoCard.style.marginTop = '14px';
-        zeppCard.after(kyotoCard);
-      }
-      kyotoCard.innerHTML = sep06Kyoto;
-
-      let idolpackCard = kyotoCard.nextElementSibling;
+      let idolpackCard = nextLive.nextElementSibling;
       if (!idolpackCard?.classList.contains('sep06-idolpack-home')) {
         idolpackCard = document.createElement('article');
         idolpackCard.className = 'card next-live sep06-idolpack-home';
         idolpackCard.style.marginTop = '14px';
-        kyotoCard.after(idolpackCard);
+        nextLive.after(idolpackCard);
       }
       idolpackCard.innerHTML = sep06Idolpack;
 
@@ -134,6 +93,10 @@ if (homePage) {
         idolpackCard.after(smileCard);
       }
       smileCard.innerHTML = sep06Smile;
+
+      homePage.querySelectorAll('.sep05-zepp-home, .sep06-kyoto-home').forEach((card) => {
+        if (card !== nextLive) card.remove();
+      });
     }
   }
 
@@ -156,19 +119,6 @@ if (livePage) {
   const liveList = livePage.querySelector('.live-list');
   if (liveList) {
     liveList.querySelectorAll('.sep05-live').forEach((item) => item.remove());
-
-    const otsu = document.createElement('article');
-    otsu.className = 'card live-card sep05-live';
-    otsu.style.marginBottom = '14px';
-    otsu.innerHTML = `<div class="live-card-top"><div class="live-date"><strong>09.05</strong><span>SAT</span></div><span class="badge">LIVE</span></div><h3>STREET FESTA! @SPAWORLD</h3><p class="live-place">📍 スパワールド</p><p class="muted live-time">START 10:00</p><p class="muted live-time">🎤 14:30–14:50 / 📸 14:55–15:55</p><p class="live-note">観覧無料 / 撮影パス 各部 ¥1,000 / 優先エリア 各部 ¥1,000</p><p class="live-note"><strong>※天候不順によりJR大津駅前広場から会場変更</strong><br><strong>※ミブ休演</strong></p>`;
-
-    const zepp = document.createElement('article');
-    zepp.className = 'card live-card sep05-live birthday-schedule';
-    zepp.style.marginBottom = '14px';
-    zepp.innerHTML = `<div class="live-card-top"><div class="live-date"><strong>09.05</strong><span>SAT</span></div><span class="badge">🚨重要LIVE</span></div><h3>Zepp de LIVE</h3><p class="live-place">📍 Zepp Namba</p><p class="muted live-time">OPEN 11:00 / START 11:30</p><p class="live-note">前方 ¥5,000 / 一般 ¥2,000（入場時1ドリンク必須）</p><p class="live-note"><strong>※ミブ休演</strong></p><p class="live-note">🎁 前方：1セツナポイント＋デジショ無料＋メッセージ書き交流付き<br>🎁 一般：1セツナポイント＋デジショ無料</p><p class="muted live-time">※タイムテーブルは後日公開</p><a class="primary live-ticket" href="https://ticketdive.com/event/zeppdelive0905" target="_blank" rel="noopener noreferrer">チケットを見る →</a>`;
-
-    liveList.prepend(zepp);
-    liveList.prepend(otsu);
   }
 }
 
