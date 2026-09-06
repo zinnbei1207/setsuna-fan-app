@@ -23,35 +23,14 @@ appLinks.forEach((attrs) => {
   document.head.appendChild(meta);
 });
 
-const sep06Kyoto = `
-  <div class="live-date"><strong>09.06</strong><span>SUN</span></div>
-  <span class="badge">LIVE</span>
-  <h3>京コレDream festa!</h3>
-  <p class="live-place">📍 ローム・スクエア（ロームシアター京都）</p>
-  <p class="muted live-time">10:00–19:00</p>
-  <p class="muted live-time">🎤 11:05–11:20 / 📸 11:20–12:10</p>
-  <p class="live-note">観覧無料</p>
-`;
-
-const sep06Idolpack = `
-  <div class="live-date"><strong>09.06</strong><span>SUN</span></div>
-  <span class="badge">LIVE</span>
-  <h3>idolpack</h3>
-  <p class="live-place">📍 南堀江ビレボア</p>
-  <p class="muted live-time">OPEN 16:20 / START 16:40</p>
-  <p class="live-note">優先 ¥2,500 / 一般 ¥1,000（1ドリンク別）</p>
-  <a class="primary live-ticket" href="https://ticketdive.com/event/ip0906" target="_blank" rel="noopener noreferrer">チケットを見る →</a>
-`;
-
-const sep06Smile = `
-  <div class="live-date"><strong>09.06</strong><span>SUN</span></div>
-  <span class="badge">LIVE</span>
-  <h3>はっぴーすまいるᵕ̈*</h3>
-  <p class="live-place">📍 ナンバーゲート</p>
-  <p class="muted live-time">OPEN 16:10 / START 16:30</p>
-  <p class="muted live-time">🎤 19:55–20:15 / 📸 21:00–22:00</p>
-  <p class="live-note">前売り ¥2,600 / 当日 ¥3,100（D込）</p>
-  <a class="primary live-ticket" href="https://ticketdive.com/event/smile96" target="_blank" rel="noopener noreferrer">チケットを見る →</a>
+const mibuBirthdayNext = `
+  <div class="live-date"><strong>09.12</strong><span>SAT</span></div>
+  <span class="badge">🎂 重要LIVE</span>
+  <h3>ミブ生誕祭 ～壬生乱舞2026～</h3>
+  <p class="live-place">📍 SOUNDNOTE OSAKA</p>
+  <p class="muted live-time">OPEN 18:00 / START 18:30</p>
+  <p class="live-note"><strong>いよいよ次のライブはミブ生誕祭！</strong></p>
+  <a class="primary live-ticket" href="https://tiget.net/events/495969" target="_blank" rel="noopener noreferrer">チケットを購入する →</a>
 `;
 
 const homePage = document.getElementById('home');
@@ -70,33 +49,17 @@ if (homePage) {
 
   const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim() === 'NEXT LIVE');
   if (nextHeading) {
-    nextHeading.textContent = 'NEXT LIVE · 9/6';
+    nextHeading.textContent = 'NEXT LIVE · 9/12';
     let nextLive = nextHeading.nextElementSibling;
     if (nextLive?.matches('article.card.next-live')) {
-      nextLive.innerHTML = sep06Kyoto;
-      nextLive.classList.remove('sep05-zepp-home', 'sep06-idolpack-home', 'sep06-smile-home');
-
-      let idolpackCard = nextLive.nextElementSibling;
-      if (!idolpackCard?.classList.contains('sep06-idolpack-home')) {
-        idolpackCard = document.createElement('article');
-        idolpackCard.className = 'card next-live sep06-idolpack-home';
-        idolpackCard.style.marginTop = '14px';
-        nextLive.after(idolpackCard);
+      nextLive.innerHTML = mibuBirthdayNext;
+      nextLive.className = 'card next-live birthday-schedule';
+      let node = nextLive.nextElementSibling;
+      while (node && node.matches('article.card.next-live')) {
+        const next = node.nextElementSibling;
+        node.remove();
+        node = next;
       }
-      idolpackCard.innerHTML = sep06Idolpack;
-
-      let smileCard = idolpackCard.nextElementSibling;
-      if (!smileCard?.classList.contains('sep06-smile-home')) {
-        smileCard = document.createElement('article');
-        smileCard.className = 'card next-live sep06-smile-home';
-        smileCard.style.marginTop = '14px';
-        idolpackCard.after(smileCard);
-      }
-      smileCard.innerHTML = sep06Smile;
-
-      homePage.querySelectorAll('.sep05-zepp-home, .sep06-kyoto-home').forEach((card) => {
-        if (card !== nextLive) card.remove();
-      });
     }
   }
 
@@ -118,7 +81,7 @@ const livePage = document.getElementById('live');
 if (livePage) {
   const liveList = livePage.querySelector('.live-list');
   if (liveList) {
-    liveList.querySelectorAll('.sep05-live').forEach((item) => item.remove());
+    liveList.querySelectorAll('.sep05-live, .sep06-live').forEach((item) => item.remove());
   }
 }
 
