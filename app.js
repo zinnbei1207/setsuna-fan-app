@@ -23,45 +23,92 @@ appLinks.forEach((attrs) => {
   document.head.appendChild(meta);
 });
 
-const sep09Next = `
-  <div class="live-date"><strong>09.09</strong><span>WED</span></div>
-  <span class="badge">NEXT LIVE</span>
-  <h3>SHOW IN OSAKA</h3>
-  <p class="live-place">📍 Live Bar BK</p>
-  <p class="muted live-time">OPEN 18:20 / START 18:40</p>
-  <p class="muted live-time">🎤 19:00–19:20 / 📸 20:00–21:00</p>
-  <p class="live-note">予約 ¥1,500 / 当日 ¥2,500（+1D）</p>
-  <a class="primary live-ticket" href="https://ticketdive.com/event/SIO0909" target="_blank" rel="noopener noreferrer">チケットを購入する →</a>
+// ライブ情報はここだけ更新すれば、ホームと予定ページの両方に反映されます。
+// homeUntil は「ホームの次回ライブ候補から外す時刻」。特典会終了時刻を基本に設定。
+const liveEvents = [
+  {
+    id: '2026-09-09-show-in-osaka',
+    date: '2026-09-09', day: 'WED', homeUntil: '2026-09-09T21:00:00+09:00',
+    title: 'SHOW IN OSAKA', place: 'Live Bar BK',
+    openStart: 'OPEN 18:20 / START 18:40', performance: '🎤 19:00–19:20 / 📸 20:00–21:00',
+    note: '予約 ¥1,500 / 当日 ¥2,500（+1D）', ticket: 'https://ticketdive.com/event/SIO0909', badge: 'LIVE'
+  },
+  {
+    id: '2026-09-12-mibu-birthday',
+    date: '2026-09-12', day: 'SAT', homeUntil: '2026-09-12T23:59:59+09:00',
+    title: 'ミブ生誕祭 ～壬生乱舞2026～', place: 'SOUNDNOTE OSAKA',
+    openStart: 'OPEN 18:00 / START 18:30', performance: '', note: '',
+    ticket: 'https://tiget.net/events/495969', badge: '重要LIVE'
+  },
+  {
+    id: '2026-09-13-show-in-osaka',
+    date: '2026-09-13', day: 'SUN', homeUntil: '2026-09-13T15:30:00+09:00',
+    title: 'SHOW IN OSAKA', place: 'Live Bar BK',
+    openStart: 'OPEN 12:30 / START 12:45', performance: '🎤 13:05–13:25 / 📸 14:30–15:30',
+    note: '予約 ¥1,500 / 当日 ¥2,500（+1D）', ticket: 'https://ticketdive.com/event/SIO0913', badge: 'LIVE'
+  },
+  {
+    id: '2026-10-03-utan-birthday',
+    date: '2026-10-03', day: 'SAT', homeUntil: '2026-10-03T23:59:59+09:00',
+    title: 'うーたん生誕祭「きらめき魔法少女うーたん降臨っ♡」', place: 'Pollux Theater',
+    openStart: 'OPEN 18:10 / START 18:30', performance: '', note: '',
+    ticket: 'https://tiget.net/events/503695', badge: '重要LIVE'
+  }
+].sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
+
+const shortDate = (date) => {
+  const [, month, day] = date.split('-');
+  return `${month}.${day}`;
+};
+const headingDate = (date) => {
+  const [, month, day] = date.split('-');
+  return `${Number(month)}/${Number(day)}`;
+};
+const eventLines = (event) => `
+  <div class="live-date"><strong>${shortDate(event.date)}</strong><span>${event.day}</span></div>
+  <span class="badge">${event.badge || 'LIVE'}</span>
+  <h3>${event.title}</h3>
+  <p class="live-place">📍 ${event.place}</p>
+  ${event.openStart ? `<p class="muted live-time">${event.openStart}</p>` : ''}
+  ${event.performance ? `<p class="muted live-time">${event.performance}</p>` : ''}
+  ${event.note ? `<p class="live-note">${event.note}</p>` : ''}
+  ${event.ticket ? `<a class="primary live-ticket" href="${event.ticket}" target="_blank" rel="noopener noreferrer">チケットを購入する →</a>` : ''}
 `;
+
+function upcomingTwoLiveDates(now = new Date()) {
+  const upcoming = liveEvents.filter((event) => now < new Date(event.homeUntil));
+  const dates = [...new Set(upcoming.map((event) => event.date))].slice(0, 2);
+  return { upcoming, dates };
+}
 
 const homePage = document.getElementById('home');
 if (homePage) {
-  const homeHeadings = [...homePage.querySelectorAll('.eyebrow')];
-  const todayHeading = homeHeadings.find((heading) => heading.textContent.trim() === "TODAY'S SCHEDULE");
-  if (todayHeading) {
-    let node = todayHeading.nextElementSibling;
-    while (node && node.matches('article.card.next-live')) {
+  const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim().startsWith('NEXT LIVE'));
+  if (nextHeading) {
+    let node = nextHeading.nextElementSibling;
+    while (node && node.matches('article.card.next-live, .auto-live-day')) {
       const next = node.nextElementSibling;
       node.remove();
       node = next;
     }
-    todayHeading.remove();
-  }
 
-  const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim().startsWith('NEXT LIVE'));
-  if (nextHeading) {
-    nextHeading.textContent = 'NEXT LIVE · 9/9';
-    let nextLive = nextHeading.nextElementSibling;
-    if (nextLive?.matches('article.card.next-live')) {
-      nextLive.innerHTML = sep09Next;
-      nextLive.className = 'card next-live';
-      let node = nextLive.nextElementSibling;
-      while (node && node.matches('article.card.next-live')) {
-        const next = node.nextElementSibling;
-        node.remove();
-        node = next;
-      }
-    }
+    const { upcoming, dates } = upcomingTwoLiveDates();
+    nextHeading.textContent = dates.length ? `NEXT LIVE · ${dates.map(headingDate).join(' ＆ ')}` : 'NEXT LIVE';
+
+    dates.forEach((date, dateIndex) => {
+      const dayWrap = document.createElement('div');
+      dayWrap.className = 'auto-live-day';
+      if (dateIndex > 0) dayWrap.style.marginTop = '18px';
+      const eventsForDay = upcoming.filter((event) => event.date === date);
+      eventsForDay.forEach((event, eventIndex) => {
+        const card = document.createElement('article');
+        card.className = 'card next-live';
+        if (eventIndex > 0) card.style.marginTop = '14px';
+        card.innerHTML = eventLines(event);
+        dayWrap.appendChild(card);
+      });
+      nextHeading.parentNode.insertBefore(dayWrap, node);
+    });
   }
 
   if (!homePage.querySelector('.about-fan-app')) {
@@ -82,50 +129,21 @@ const livePage = document.getElementById('live');
 if (livePage) {
   const liveList = livePage.querySelector('.live-list');
   if (liveList) {
-    liveList.querySelectorAll('.sep05-live, .sep06-live').forEach((item) => item.remove());
-
-    if (!liveList.querySelector('.sep09-live')) {
-      const sep09 = document.createElement('article');
-      sep09.className = 'card live-card sep09-live';
-      sep09.style.marginTop = '14px';
-      sep09.innerHTML = `
-        <div class="live-card-top">
-          <div class="live-date"><strong>09.09</strong><span>WED</span></div>
-          <span class="badge">LIVE</span>
-        </div>
-        <h3>SHOW IN OSAKA</h3>
-        <p class="live-place">📍 Live Bar BK</p>
-        <p class="muted live-time">OPEN 18:20 / START 18:40</p>
-        <p class="muted live-time">🎤 19:00–19:20 / 📸 20:00–21:00</p>
-        <p class="live-note">予約 ¥1,500 / 当日 ¥2,500（+1D）</p>
-        <a class="primary live-ticket" href="https://ticketdive.com/event/SIO0909" target="_blank" rel="noopener noreferrer">チケットを購入する →</a>
-      `;
-      const firstBirthday = liveList.querySelector('.birthday-schedule');
-      if (firstBirthday) liveList.insertBefore(sep09, firstBirthday);
-      else liveList.prepend(sep09);
-    }
-
-    if (!liveList.querySelector('.sep13-live')) {
-      const sep13 = document.createElement('article');
-      sep13.className = 'card live-card sep13-live';
-      sep13.style.marginTop = '14px';
-      sep13.innerHTML = `
-        <div class="live-card-top">
-          <div class="live-date"><strong>09.13</strong><span>SUN</span></div>
-          <span class="badge">LIVE</span>
-        </div>
-        <h3>SHOW IN OSAKA</h3>
-        <p class="live-place">📍 Live Bar BK</p>
-        <p class="muted live-time">OPEN 12:30 / START 12:45</p>
-        <p class="muted live-time">🎤 13:05–13:25 / 📸 14:30–15:30</p>
-        <p class="live-note">予約 ¥1,500 / 当日 ¥2,500（+1D）</p>
-        <a class="primary live-ticket" href="https://ticketdive.com/event/SIO0913" target="_blank" rel="noopener noreferrer">チケットを購入する →</a>
-      `;
-      const birthdayCards = [...liveList.querySelectorAll('.birthday-schedule')];
-      const oct03 = birthdayCards.find((card) => card.textContent.includes('10.03'));
-      if (oct03) liveList.insertBefore(sep13, oct03);
-      else liveList.appendChild(sep13);
-    }
+    liveList.innerHTML = '';
+    liveEvents.forEach((event, index) => {
+      const card = document.createElement('article');
+      card.className = `card live-card auto-live-event ${event.badge === '重要LIVE' ? 'birthday-schedule' : ''}`;
+      if (index > 0) card.style.marginTop = '14px';
+      card.innerHTML = `<div class="live-card-top">${eventLines(event)}</div>`;
+      // eventLines の日付・badge以外を top の外へ戻して既存デザインを維持
+      const dateBox = card.querySelector('.live-date');
+      const badge = card.querySelector('.badge');
+      const top = card.querySelector('.live-card-top');
+      [...top.children].forEach((child) => {
+        if (child !== dateBox && child !== badge) card.appendChild(child);
+      });
+      liveList.appendChild(card);
+    });
   }
 }
 
@@ -139,7 +157,6 @@ if (bottomNav && !bottomNav.querySelector('.song-nav-item')) {
   const videoNav = bottomNav.querySelector('[data-page="video"]');
   if (videoNav) bottomNav.insertBefore(songLink, videoNav);
   else bottomNav.appendChild(songLink);
-
   bottomNav.style.gridTemplateColumns = 'repeat(6, minmax(0, 1fr))';
   songLink.style.textDecoration = 'none';
 }
@@ -164,7 +181,6 @@ if (videoPage) {
 
 const navItems = document.querySelectorAll('.nav-item[data-page]');
 const pages = document.querySelectorAll('.page');
-
 function showPage(target, smooth = true) {
   const exists = [...pages].some((page) => page.id === target);
   if (!exists) return;
@@ -172,7 +188,6 @@ function showPage(target, smooth = true) {
   navItems.forEach((nav) => nav.classList.toggle('active', nav.dataset.page === target));
   window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
 }
-
 navItems.forEach((item) => {
   item.addEventListener('click', () => {
     const target = item.dataset.page;
@@ -180,6 +195,5 @@ navItems.forEach((item) => {
     history.replaceState(null, '', `#${target}`);
   });
 });
-
 const initialHash = location.hash.replace('#', '');
 if (initialHash) showPage(initialHash, false);
