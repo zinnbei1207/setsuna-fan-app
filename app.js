@@ -75,6 +75,7 @@ const liveEvents = [
 ].sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
 
 const publishedLiveEvents = () => liveEvents.filter((event) => event.status === 'published');
+const upcomingPublishedLiveEvents = (now = new Date()) => publishedLiveEvents().filter((event) => now < new Date(event.homeUntil));
 
 const shortDate = (date) => {
   const [, month, day] = date.split('-');
@@ -97,7 +98,7 @@ const eventLines = (event) => `
 
 function upcomingTwoLiveDates(now = new Date()) {
   // 未解禁イベントは NEXT LIVE の日付計算にも絶対に使わない。
-  const upcoming = publishedLiveEvents().filter((event) => now < new Date(event.homeUntil));
+  const upcoming = upcomingPublishedLiveEvents(now);
   const dates = [...new Set(upcoming.map((event) => event.date))].slice(0, 2);
   return { upcoming, dates };
 }
@@ -151,8 +152,8 @@ if (livePage) {
   const liveList = livePage.querySelector('.live-list');
   if (liveList) {
     liveList.innerHTML = '';
-    // 公開済みだけを描画。unreleased はデータとして保持するだけ。
-    publishedLiveEvents().forEach((event, index) => {
+    // 公開済みかつ終了前のライブだけを表示。Google Calendar側の履歴は消さない。
+    upcomingPublishedLiveEvents().forEach((event, index) => {
       const card = document.createElement('article');
       card.className = `card live-card auto-live-event ${event.badge === '重要LIVE' ? 'birthday-schedule' : ''}`;
       if (index > 0) card.style.marginTop = '14px';
@@ -227,7 +228,8 @@ if (initialHash) showPage(initialHash, false);
   const calendarCard = iframe?.closest('article.card');
   if (!calendarCard) return;
 
-  const events = publishedLiveEvents();
+  // 終了済みのライブはアプリの予定表示から除外する。Google Calendarのイベント自体は残る。
+  const events = upcomingPublishedLiveEvents();
   const monthKeys = [...new Set(events.map((event) => event.date.slice(0, 7)))].sort();
   if (!monthKeys.length) return;
 
@@ -253,7 +255,7 @@ if (initialHash) showPage(initialHash, false);
   calendarCard.removeAttribute('style');
   calendarCard.innerHTML = `
     <div class="setsuna-cal-head">
-      <div class="setsuna-cal-title"><strong>LIVE CALENDAR</strong><span>公開済みのライブ予定</span></div>
+      <div class="setsuna-cal-title"><strong>LIVE CALENDAR</strong><span>これからのライブ予定</span></div>
       <div class="setsuna-cal-months"></div>
     </div>
     <div class="setsuna-cal-week"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div>
@@ -319,5 +321,6 @@ if (initialHash) showPage(initialHash, false);
     monthsWrap.appendChild(button);
   });
 
+  // 月が変わって前月のライブがすべて終了したら、先頭の月が自動で次月になる。
   renderMonth(monthKeys[0]);
 })();
