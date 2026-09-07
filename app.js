@@ -57,7 +57,6 @@ const liveEvents = [
   { id: '2026-09-19-unreleased-umeda', status: 'unreleased', date: '2026-09-19', day: 'SAT', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-19T23:59:59+09:00' },
   { id: '2026-09-19-unreleased-namba', status: 'unreleased', date: '2026-09-19', day: 'SAT', title: '難波【未解禁】', place: '', homeUntil: '2026-09-19T23:59:59+09:00' },
   { id: '2026-09-20-unreleased-osaka', status: 'unreleased', date: '2026-09-20', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-20T23:59:59+09:00' },
-  { id: '2026-09-21-unreleased-minakan', status: 'unreleased', date: '2026-09-21', day: 'MON', title: 'ミナカン【未解禁】', place: '', homeUntil: '2026-09-21T23:59:59+09:00' },
   { id: '2026-09-22-unreleased-fukuoka', status: 'unreleased', date: '2026-09-22', day: 'TUE', title: '福岡【未解禁】', place: '', homeUntil: '2026-09-22T23:59:59+09:00' },
   { id: '2026-09-26-unreleased-osaka-1', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
   { id: '2026-09-26-unreleased-osaka-2', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
@@ -71,7 +70,8 @@ const liveEvents = [
     title: 'うーたん生誕祭「きらめき魔法少女うーたん降臨っ♡」', place: 'Pollux Theater',
     openStart: 'OPEN 18:10 / START 18:30', performance: '', note: '',
     ticket: 'https://tiget.net/events/503695', badge: '重要LIVE'
-  }
+  },
+  { id: '2026-10-04-unreleased-osaka', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' }
 ].sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
 
 const publishedLiveEvents = () => liveEvents.filter((event) => event.status === 'published');
