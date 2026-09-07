@@ -23,14 +23,15 @@ appLinks.forEach((attrs) => {
   document.head.appendChild(meta);
 });
 
-const mibuBirthdayNext = `
-  <div class="live-date"><strong>09.12</strong><span>SAT</span></div>
-  <span class="badge">🎂 重要LIVE</span>
-  <h3>ミブ生誕祭 ～壬生乱舞2026～</h3>
-  <p class="live-place">📍 SOUNDNOTE OSAKA</p>
-  <p class="muted live-time">OPEN 18:00 / START 18:30</p>
-  <p class="live-note"><strong>いよいよ次のライブはミブ生誕祭！</strong></p>
-  <a class="primary live-ticket" href="https://tiget.net/events/495969" target="_blank" rel="noopener noreferrer">チケットを購入する →</a>
+const sep09Next = `
+  <div class="live-date"><strong>09.09</strong><span>WED</span></div>
+  <span class="badge">NEXT LIVE</span>
+  <h3>SHOW IN OSAKA</h3>
+  <p class="live-place">📍 Live Bar BK</p>
+  <p class="muted live-time">OPEN 18:20 / START 18:40</p>
+  <p class="muted live-time">🎤 19:00–19:20 / 📸 20:00–21:00</p>
+  <p class="live-note">予約 ¥1,500 / 当日 ¥2,500（+1D）</p>
+  <a class="primary live-ticket" href="https://ticketdive.com/event/SIO0909" target="_blank" rel="noopener noreferrer">チケットを購入する →</a>
 `;
 
 const homePage = document.getElementById('home');
@@ -47,13 +48,13 @@ if (homePage) {
     todayHeading.remove();
   }
 
-  const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim() === 'NEXT LIVE');
+  const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim().startsWith('NEXT LIVE'));
   if (nextHeading) {
-    nextHeading.textContent = 'NEXT LIVE · 9/12';
+    nextHeading.textContent = 'NEXT LIVE · 9/9';
     let nextLive = nextHeading.nextElementSibling;
     if (nextLive?.matches('article.card.next-live')) {
-      nextLive.innerHTML = mibuBirthdayNext;
-      nextLive.className = 'card next-live birthday-schedule';
+      nextLive.innerHTML = sep09Next;
+      nextLive.className = 'card next-live';
       let node = nextLive.nextElementSibling;
       while (node && node.matches('article.card.next-live')) {
         const next = node.nextElementSibling;
