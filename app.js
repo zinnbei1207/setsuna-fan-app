@@ -218,3 +218,106 @@ navItems.forEach((item) => {
 });
 const initialHash = location.hash.replace('#', '');
 if (initialHash) showPage(initialHash, false);
+
+// 予定ページはTimeTree埋め込みではなく、アプリの公開LIVEデータをカレンダー表示する。
+// Google Calendarへの同期も同じliveEventsを元にするため、表示と同期元を一本化できる。
+(function renderInAppLiveCalendar() {
+  if (!livePage) return;
+  const iframe = livePage.querySelector('iframe[title="カレンダー"]');
+  const calendarCard = iframe?.closest('article.card');
+  if (!calendarCard) return;
+
+  const events = publishedLiveEvents();
+  const monthKeys = [...new Set(events.map((event) => event.date.slice(0, 7)))].sort();
+  if (!monthKeys.length) return;
+
+  const liveCards = [...livePage.querySelectorAll('.auto-live-event')];
+  events.forEach((event, index) => {
+    if (liveCards[index]) liveCards[index].dataset.eventId = event.id;
+  });
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .setsuna-calendar{padding:16px!important;overflow:hidden;background:radial-gradient(circle at 90% 0,rgba(156,115,230,.16),transparent 34%),rgba(31,27,39,.96)!important}
+    .setsuna-cal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+    .setsuna-cal-title{display:flex;flex-direction:column;gap:3px}.setsuna-cal-title strong{font-size:13px;letter-spacing:.12em}.setsuna-cal-title span{font-size:10px;color:#aaa4b4}
+    .setsuna-cal-months{display:flex;gap:6px}.setsuna-cal-month{border:1px solid #443750;background:#211d29;color:#9e95aa;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800}.setsuna-cal-month.active{background:#8061b7;border-color:#a782df;color:#fff}
+    .setsuna-cal-week,.setsuna-cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.setsuna-cal-week{margin-bottom:5px}.setsuna-cal-week span{text-align:center;font-size:9px;color:#81798a;font-weight:800;padding:3px 0}.setsuna-cal-week span:first-child{color:#d18b9c}.setsuna-cal-week span:last-child{color:#8ca4da}
+    .setsuna-cal-day{min-height:52px;border:1px solid #312b3b;border-radius:11px;background:#19151f;color:#eee9f3;padding:7px 4px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;font-size:11px}.setsuna-cal-day.empty{visibility:hidden}.setsuna-cal-day.has-live{cursor:pointer;border-color:#674e83;background:linear-gradient(145deg,#2b2037,#201a27);box-shadow:inset 0 0 0 1px rgba(178,139,220,.08)}.setsuna-cal-day.important{border-color:#9b6bd2;background:radial-gradient(circle at 75% 20%,rgba(167,118,232,.26),transparent 45%),linear-gradient(145deg,#32213f,#211827)}.setsuna-cal-day strong{font-size:12px}.setsuna-cal-dots{display:flex;gap:3px;min-height:5px}.setsuna-cal-dot{width:5px;height:5px;border-radius:50%;background:#a986db}.setsuna-cal-day.important .setsuna-cal-dot{box-shadow:0 0 7px rgba(199,170,255,.75)}
+    .setsuna-cal-legend{display:flex;align-items:center;gap:7px;margin:12px 2px 0;color:#8f8799;font-size:9px;line-height:1.5}.setsuna-cal-legend i{width:6px;height:6px;border-radius:50%;background:#a986db;box-shadow:0 0 7px rgba(199,170,255,.55)}
+    .auto-live-event.calendar-focus{animation:setsunaPulse .8s ease}@keyframes setsunaPulse{0%{box-shadow:0 0 0 0 rgba(167,118,232,.65)}100%{box-shadow:0 0 0 14px rgba(167,118,232,0)}}
+  `;
+  document.head.appendChild(style);
+
+  calendarCard.classList.add('setsuna-calendar');
+  calendarCard.removeAttribute('style');
+  calendarCard.innerHTML = `
+    <div class="setsuna-cal-head">
+      <div class="setsuna-cal-title"><strong>LIVE CALENDAR</strong><span>公開済みのライブ予定</span></div>
+      <div class="setsuna-cal-months"></div>
+    </div>
+    <div class="setsuna-cal-week"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div>
+    <div class="setsuna-cal-grid"></div>
+    <div class="setsuna-cal-legend"><i></i><span>紫の印がライブ日。タップすると詳細へ移動します。</span></div>
+  `;
+
+  const monthsWrap = calendarCard.querySelector('.setsuna-cal-months');
+  const grid = calendarCard.querySelector('.setsuna-cal-grid');
+
+  const renderMonth = (key) => {
+    const [yearText, monthText] = key.split('-');
+    const year = Number(yearText);
+    const month = Number(monthText);
+    const firstDay = new Date(year, month - 1, 1).getDay();
+    const lastDate = new Date(year, month, 0).getDate();
+    const byDate = new Map();
+    events.filter((event) => event.date.startsWith(`${key}-`)).forEach((event) => {
+      if (!byDate.has(event.date)) byDate.set(event.date, []);
+      byDate.get(event.date).push(event);
+    });
+
+    grid.innerHTML = '';
+    for (let i = 0; i < firstDay; i += 1) {
+      const blank = document.createElement('div');
+      blank.className = 'setsuna-cal-day empty';
+      grid.appendChild(blank);
+    }
+
+    for (let day = 1; day <= lastDate; day += 1) {
+      const date = `${yearText}-${monthText}-${String(day).padStart(2, '0')}`;
+      const dayEvents = byDate.get(date) || [];
+      const button = document.createElement(dayEvents.length ? 'button' : 'div');
+      button.className = `setsuna-cal-day${dayEvents.length ? ' has-live' : ''}${dayEvents.some((event) => event.badge === '重要LIVE') ? ' important' : ''}`;
+      button.innerHTML = `<strong>${day}</strong><span class="setsuna-cal-dots">${dayEvents.slice(0, 3).map(() => '<i class="setsuna-cal-dot"></i>').join('')}</span>`;
+      if (dayEvents.length) {
+        button.type = 'button';
+        button.setAttribute('aria-label', `${month}月${day}日 ${dayEvents.map((event) => event.title).join('、')}`);
+        button.addEventListener('click', () => {
+          const target = livePage.querySelector(`[data-event-id="${dayEvents[0].id}"]`);
+          if (!target) return;
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          target.classList.remove('calendar-focus');
+          requestAnimationFrame(() => target.classList.add('calendar-focus'));
+          setTimeout(() => target.classList.remove('calendar-focus'), 900);
+        });
+      }
+      grid.appendChild(button);
+    }
+  };
+
+  monthKeys.forEach((key, index) => {
+    const [, monthText] = key.split('-');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `setsuna-cal-month${index === 0 ? ' active' : ''}`;
+    button.textContent = `${Number(monthText)}月`;
+    button.addEventListener('click', () => {
+      [...monthsWrap.children].forEach((item) => item.classList.remove('active'));
+      button.classList.add('active');
+      renderMonth(key);
+    });
+    monthsWrap.appendChild(button);
+  });
+
+  renderMonth(monthKeys[0]);
+})();
