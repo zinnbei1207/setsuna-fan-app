@@ -24,37 +24,57 @@ appLinks.forEach((attrs) => {
 });
 
 // ライブ情報はここだけ更新すれば、ホームと予定ページの両方に反映されます。
+// status: 'published' = 公開して表示 / 'unreleased' = 内部保存のみ（画面には絶対表示しない）
+// 未解禁予定は先に unreleased で登録し、公式解禁後に詳細を追記して published へ変更する。
 // homeUntil は「ホームの次回ライブ候補から外す時刻」。特典会終了時刻を基本に設定。
 const liveEvents = [
   {
-    id: '2026-09-09-show-in-osaka',
+    id: '2026-09-09-show-in-osaka', status: 'published',
     date: '2026-09-09', day: 'WED', homeUntil: '2026-09-09T21:00:00+09:00',
     title: 'SHOW IN OSAKA', place: 'Live Bar BK',
     openStart: 'OPEN 18:20 / START 18:40', performance: '🎤 19:00–19:20 / 📸 20:00–21:00',
     note: '予約 ¥1,500 / 当日 ¥2,500（+1D）', ticket: 'https://ticketdive.com/event/SIO0909', badge: 'LIVE'
   },
   {
-    id: '2026-09-12-mibu-birthday',
+    id: '2026-09-12-mibu-birthday', status: 'published',
     date: '2026-09-12', day: 'SAT', homeUntil: '2026-09-12T23:59:59+09:00',
     title: 'ミブ生誕祭 ～壬生乱舞2026～', place: 'SOUNDNOTE OSAKA',
     openStart: 'OPEN 18:00 / START 18:30', performance: '', note: '',
     ticket: 'https://tiget.net/events/495969', badge: '重要LIVE'
   },
   {
-    id: '2026-09-13-show-in-osaka',
+    id: '2026-09-13-show-in-osaka', status: 'published',
     date: '2026-09-13', day: 'SUN', homeUntil: '2026-09-13T15:30:00+09:00',
     title: 'SHOW IN OSAKA', place: 'Live Bar BK',
     openStart: 'OPEN 12:30 / START 12:45', performance: '🎤 13:05–13:25 / 📸 14:30–15:30',
     note: '予約 ¥1,500 / 当日 ¥2,500（+1D）', ticket: 'https://ticketdive.com/event/SIO0913', badge: 'LIVE'
   },
+
+  // ===== 未解禁予定：内部管理専用。公式解禁まで画面には出さない =====
+  { id: '2026-09-13-unreleased-osaka-1', status: 'unreleased', date: '2026-09-13', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-13T23:59:59+09:00' },
+  { id: '2026-09-13-unreleased-osaka-2', status: 'unreleased', date: '2026-09-13', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-13T23:59:59+09:00' },
+  { id: '2026-09-17-unreleased-umeda', status: 'unreleased', date: '2026-09-17', day: 'THU', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-17T23:59:59+09:00' },
+  { id: '2026-09-19-unreleased-umeda', status: 'unreleased', date: '2026-09-19', day: 'SAT', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-19T23:59:59+09:00' },
+  { id: '2026-09-19-unreleased-namba', status: 'unreleased', date: '2026-09-19', day: 'SAT', title: '難波【未解禁】', place: '', homeUntil: '2026-09-19T23:59:59+09:00' },
+  { id: '2026-09-20-unreleased-osaka', status: 'unreleased', date: '2026-09-20', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-20T23:59:59+09:00' },
+  { id: '2026-09-21-unreleased-minakan', status: 'unreleased', date: '2026-09-21', day: 'MON', title: 'ミナカン【未解禁】', place: '', homeUntil: '2026-09-21T23:59:59+09:00' },
+  { id: '2026-09-22-unreleased-fukuoka', status: 'unreleased', date: '2026-09-22', day: 'TUE', title: '福岡【未解禁】', place: '', homeUntil: '2026-09-22T23:59:59+09:00' },
+  { id: '2026-09-26-unreleased-osaka-1', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
+  { id: '2026-09-26-unreleased-osaka-2', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
+  { id: '2026-09-27-unreleased-osaka-1', status: 'unreleased', date: '2026-09-27', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-27T23:59:59+09:00' },
+  { id: '2026-09-27-unreleased-osaka-2', status: 'unreleased', date: '2026-09-27', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-27T23:59:59+09:00' },
+  { id: '2026-09-28-unreleased-umeda', status: 'unreleased', date: '2026-09-28', day: 'MON', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-28T23:59:59+09:00' },
+
   {
-    id: '2026-10-03-utan-birthday',
+    id: '2026-10-03-utan-birthday', status: 'published',
     date: '2026-10-03', day: 'SAT', homeUntil: '2026-10-03T23:59:59+09:00',
     title: 'うーたん生誕祭「きらめき魔法少女うーたん降臨っ♡」', place: 'Pollux Theater',
     openStart: 'OPEN 18:10 / START 18:30', performance: '', note: '',
     ticket: 'https://tiget.net/events/503695', badge: '重要LIVE'
   }
 ].sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
+
+const publishedLiveEvents = () => liveEvents.filter((event) => event.status === 'published');
 
 const shortDate = (date) => {
   const [, month, day] = date.split('-');
@@ -68,7 +88,7 @@ const eventLines = (event) => `
   <div class="live-date"><strong>${shortDate(event.date)}</strong><span>${event.day}</span></div>
   <span class="badge">${event.badge || 'LIVE'}</span>
   <h3>${event.title}</h3>
-  <p class="live-place">📍 ${event.place}</p>
+  ${event.place ? `<p class="live-place">📍 ${event.place}</p>` : ''}
   ${event.openStart ? `<p class="muted live-time">${event.openStart}</p>` : ''}
   ${event.performance ? `<p class="muted live-time">${event.performance}</p>` : ''}
   ${event.note ? `<p class="live-note">${event.note}</p>` : ''}
@@ -76,7 +96,8 @@ const eventLines = (event) => `
 `;
 
 function upcomingTwoLiveDates(now = new Date()) {
-  const upcoming = liveEvents.filter((event) => now < new Date(event.homeUntil));
+  // 未解禁イベントは NEXT LIVE の日付計算にも絶対に使わない。
+  const upcoming = publishedLiveEvents().filter((event) => now < new Date(event.homeUntil));
   const dates = [...new Set(upcoming.map((event) => event.date))].slice(0, 2);
   return { upcoming, dates };
 }
@@ -130,12 +151,12 @@ if (livePage) {
   const liveList = livePage.querySelector('.live-list');
   if (liveList) {
     liveList.innerHTML = '';
-    liveEvents.forEach((event, index) => {
+    // 公開済みだけを描画。unreleased はデータとして保持するだけ。
+    publishedLiveEvents().forEach((event, index) => {
       const card = document.createElement('article');
       card.className = `card live-card auto-live-event ${event.badge === '重要LIVE' ? 'birthday-schedule' : ''}`;
       if (index > 0) card.style.marginTop = '14px';
       card.innerHTML = `<div class="live-card-top">${eventLines(event)}</div>`;
-      // eventLines の日付・badge以外を top の外へ戻して既存デザインを維持
       const dateBox = card.querySelector('.live-date');
       const badge = card.querySelector('.badge');
       const top = card.querySelector('.live-card-top');
