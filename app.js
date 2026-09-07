@@ -83,6 +83,27 @@ if (livePage) {
   if (liveList) {
     liveList.querySelectorAll('.sep05-live, .sep06-live').forEach((item) => item.remove());
 
+    if (!liveList.querySelector('.sep09-live')) {
+      const sep09 = document.createElement('article');
+      sep09.className = 'card live-card sep09-live';
+      sep09.style.marginTop = '14px';
+      sep09.innerHTML = `
+        <div class="live-card-top">
+          <div class="live-date"><strong>09.09</strong><span>WED</span></div>
+          <span class="badge">LIVE</span>
+        </div>
+        <h3>SHOW IN OSAKA</h3>
+        <p class="live-place">📍 Live Bar BK</p>
+        <p class="muted live-time">OPEN 18:20 / START 18:40</p>
+        <p class="muted live-time">🎤 19:00–19:20 / 📸 20:00–21:00</p>
+        <p class="live-note">予約 ¥1,500 / 当日 ¥2,500（+1D）</p>
+        <a class="primary live-ticket" href="https://ticketdive.com/event/SIO0909" target="_blank" rel="noopener noreferrer">チケットを購入する →</a>
+      `;
+      const firstBirthday = liveList.querySelector('.birthday-schedule');
+      if (firstBirthday) liveList.insertBefore(sep09, firstBirthday);
+      else liveList.prepend(sep09);
+    }
+
     if (!liveList.querySelector('.sep13-live')) {
       const sep13 = document.createElement('article');
       sep13.className = 'card live-card sep13-live';
