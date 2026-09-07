@@ -1,0 +1,11 @@
+{
+  "name": "setsuna-fan-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync-calendar": "node scripts/sync-google-calendar.mjs"
+  },
+  "dependencies": {
+    "googleapis": "^160.0.0"
+  }
+}
