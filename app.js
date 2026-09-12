@@ -105,6 +105,10 @@ function upcomingTwoLiveDates(now = new Date()) {
 
 const homePage = document.getElementById('home');
 if (homePage) {
+  // 終了したミブ生誕の固定プロモーションだけ非表示にし、うーたん生誕は残す。
+  const mibuBirthdayPromo = [...homePage.querySelectorAll('.important-live-card')].find((card) => card.querySelector('img[alt="ミブ生誕祭"]'));
+  if (mibuBirthdayPromo) mibuBirthdayPromo.remove();
+
   const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim().startsWith('NEXT LIVE'));
   if (nextHeading) {
     let node = nextHeading.nextElementSibling;
@@ -196,7 +200,7 @@ if (videoPage) {
       const title = card.querySelector('p[style*="font-weight:800"]');
       if (title) title.textContent = '走りながら聴く曲';
       const desc = card.querySelector('.muted');
-      if (desc) desc.innerHTML = 'ミニワンマンで初披露されたオリジナル曲。<br><strong style="color:#e2cef8">9/12 ミブ生誕祭で聴けます！</strong>';
+      if (desc) desc.textContent = 'ミニワンマンで初披露されたオリジナル曲。';
     }
   }
 }
