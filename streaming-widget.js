@@ -28,18 +28,13 @@
   ];
 
   const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Tokyo',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit'
+    timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit'
   }).formatToParts(new Date());
   const get = (type) => parts.find((part) => part.type === type)?.value;
   const today = `${get('year')}-${get('month')}-${get('day')}`;
 
   const todayMembers = strengthenWeek[today] || null;
   const nextTicketStream = utanTicketStreams.find((item) => item.date >= today) || null;
-
-  // 配信強化週間終了後かつ、うーたんの配信予定も終了したら自動で非表示。
   if (!todayMembers && !nextTicketStream) return;
 
   const formatDate = (date) => {
@@ -59,6 +54,7 @@
             <span class="streaming-label">永遠のセツナ 配信強化週間</span>
             <strong>今日の配信予定：${todayMembers.join('・')}</strong>
             <small>配信時間・変更は各メンバーの告知をご確認ください。</small>
+            <a class="streaming-image-link" href="streaming_week_202609.jpeg" target="_blank" rel="noopener noreferrer">告知画像を見る →</a>
           </div>
         </div>
       ` : ''}
@@ -69,6 +65,7 @@
             <span class="streaming-label">うーたん生誕 チケット配信</span>
             <strong>次回 ${formatDate(nextTicketStream.date)}　${nextTicketStream.time}</strong>
             <small>10/3 うーたん生誕祭に向けた「終われまてん配信」</small>
+            <a class="streaming-image-link" href="utan_stream_schedule_202609.jpeg" target="_blank" rel="noopener noreferrer">予定表を見る →</a>
           </div>
         </div>
       ` : ''}
@@ -83,10 +80,11 @@
     .streaming-row{display:flex;gap:12px;padding:16px 17px;align-items:flex-start}
     .streaming-divider{border-top:1px solid rgba(174,191,221,.16)}
     .streaming-icon{flex:0 0 34px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:11px;background:rgba(255,255,255,.06);font-size:17px}
-    .streaming-copy{min-width:0;display:flex;flex-direction:column;gap:5px}
+    .streaming-copy{min-width:0;display:flex;flex-direction:column;gap:5px;flex:1}
     .streaming-label{font-size:9px;font-weight:800;letter-spacing:.08em;color:#a8d9ff}
     .streaming-copy strong{font-size:13px;line-height:1.55;color:#f6f7ff}
     .streaming-copy small{font-size:9px;line-height:1.6;color:#9798aa}
+    .streaming-image-link{align-self:flex-start;margin-top:4px;padding:7px 10px;border:1px solid rgba(168,217,255,.25);border-radius:999px;color:#bfe9ff;text-decoration:none;font-size:9px;font-weight:800;background:rgba(168,217,255,.05)}
   `;
   document.head.appendChild(style);
 
