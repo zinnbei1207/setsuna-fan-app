@@ -1,0 +1,104 @@
+// ホーム用「配信情報」ウィジェット
+// 日本時間の日付を基準に、配信強化週間の「今日の配信予定」と
+// うーたん生誕チケット配信の次回予定を自動表示する。
+(function renderStreamingWidget() {
+  const home = document.getElementById('home');
+  if (!home || home.querySelector('.streaming-widget')) return;
+
+  const strengthenWeek = {
+    '2026-09-14': ['うーたん', 'ミブ'],
+    '2026-09-15': ['うーたん', 'ミブ'],
+    '2026-09-16': ['ミブ', 'えら'],
+    '2026-09-17': ['うーたん', 'ミブ', 'えら'],
+    '2026-09-18': ['うーたん', 'えら']
+  };
+
+  const utanTicketStreams = [
+    { date: '2026-09-15', time: '20:00〜' },
+    { date: '2026-09-17', time: '未定' },
+    { date: '2026-09-19', time: '未定' },
+    { date: '2026-09-20', time: '未定' },
+    { date: '2026-09-21', time: '19:00〜' },
+    { date: '2026-09-23', time: '19:00〜' },
+    { date: '2026-09-26', time: '未定（リアバ!!）' },
+    { date: '2026-09-27', time: '未定' },
+    { date: '2026-09-28', time: '未定' },
+    { date: '2026-09-29', time: '19:00〜' },
+    { date: '2026-09-30', time: '19:00〜' }
+  ];
+
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(new Date());
+  const get = (type) => parts.find((part) => part.type === type)?.value;
+  const today = `${get('year')}-${get('month')}-${get('day')}`;
+
+  const todayMembers = strengthenWeek[today] || null;
+  const nextTicketStream = utanTicketStreams.find((item) => item.date >= today) || null;
+
+  // 配信強化週間終了後かつ、うーたんの配信予定も終了したら自動で非表示。
+  if (!todayMembers && !nextTicketStream) return;
+
+  const formatDate = (date) => {
+    const [, month, day] = date.split('-');
+    return `${Number(month)}/${Number(day)}`;
+  };
+
+  const section = document.createElement('section');
+  section.className = 'section-block streaming-widget';
+  section.innerHTML = `
+    <div class="section-heading"><h2>STREAMING</h2><span>配信情報</span></div>
+    <article class="streaming-card">
+      ${todayMembers ? `
+        <div class="streaming-row streaming-today">
+          <div class="streaming-icon">📡</div>
+          <div class="streaming-copy">
+            <span class="streaming-label">永遠のセツナ 配信強化週間</span>
+            <strong>今日の配信予定：${todayMembers.join('・')}</strong>
+            <small>配信時間・変更は各メンバーの告知をご確認ください。</small>
+          </div>
+        </div>
+      ` : ''}
+      ${nextTicketStream ? `
+        <div class="streaming-row ${todayMembers ? 'streaming-divider' : ''}">
+          <div class="streaming-icon">🎫</div>
+          <div class="streaming-copy">
+            <span class="streaming-label">うーたん生誕 チケット配信</span>
+            <strong>次回 ${formatDate(nextTicketStream.date)}　${nextTicketStream.time}</strong>
+            <small>10/3 うーたん生誕祭に向けた「終われまてん配信」</small>
+          </div>
+        </div>
+      ` : ''}
+    </article>
+  `;
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .streaming-widget{margin-top:26px}
+    .streaming-widget .section-heading h2{color:#bfe9ff}
+    .streaming-card{overflow:hidden;border:1px solid #4d526b;border-radius:18px;background:radial-gradient(circle at 90% 0,rgba(111,183,255,.16),transparent 38%),linear-gradient(145deg,#1d2030,#191720);box-shadow:0 12px 35px rgba(0,0,0,.18)}
+    .streaming-row{display:flex;gap:12px;padding:16px 17px;align-items:flex-start}
+    .streaming-divider{border-top:1px solid rgba(174,191,221,.16)}
+    .streaming-icon{flex:0 0 34px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:11px;background:rgba(255,255,255,.06);font-size:17px}
+    .streaming-copy{min-width:0;display:flex;flex-direction:column;gap:5px}
+    .streaming-label{font-size:9px;font-weight:800;letter-spacing:.08em;color:#a8d9ff}
+    .streaming-copy strong{font-size:13px;line-height:1.55;color:#f6f7ff}
+    .streaming-copy small{font-size:9px;line-height:1.6;color:#9798aa}
+  `;
+  document.head.appendChild(style);
+
+  // NEXT LIVE の直後、BIRTHDAY EVENT の前に置く。
+  const nextHeading = [...home.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim().startsWith('NEXT LIVE'));
+  if (nextHeading) {
+    let insertBefore = nextHeading.nextElementSibling;
+    while (insertBefore && insertBefore.matches('article.card.next-live, .auto-live-day')) {
+      insertBefore = insertBefore.nextElementSibling;
+    }
+    home.insertBefore(section, insertBefore);
+  } else {
+    home.prepend(section);
+  }
+})();
