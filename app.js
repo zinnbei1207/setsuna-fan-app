@@ -59,7 +59,7 @@ const liveEvents = [
     date: '2026-09-19', day: 'SAT', homeUntil: '2026-09-19T21:00:00+09:00',
     title: 'IDOL TRIBE', place: 'ドン・キホーテ梅田本店',
     openStart: 'START 16:30', performance: '🎤 18:50–19:10 / 📸 20:00–21:00',
-    note: '観覧無料 / ※ミブはお休み', ticket: '', badge: 'LIVE'
+    note: '観覧無料 / 撮影PASS ¥1,000 / 応援ブレスレット ¥1,000 / ※ミブはお休み', ticket: '', badge: 'LIVE'
   },
   { id: '2026-09-19-unreleased-namba', status: 'unreleased', date: '2026-09-19', day: 'SAT', title: '難波【未解禁】', place: '', homeUntil: '2026-09-19T23:59:59+09:00' },
   { id: '2026-09-20-unreleased-osaka', status: 'unreleased', date: '2026-09-20', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-20T23:59:59+09:00' },
