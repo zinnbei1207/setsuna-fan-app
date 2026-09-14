@@ -54,7 +54,13 @@ const liveEvents = [
   { id: '2026-09-13-unreleased-osaka-1', status: 'unreleased', date: '2026-09-13', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-13T23:59:59+09:00' },
   { id: '2026-09-13-unreleased-osaka-2', status: 'unreleased', date: '2026-09-13', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-13T23:59:59+09:00' },
   { id: '2026-09-17-unreleased-umeda', status: 'unreleased', date: '2026-09-17', day: 'THU', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-17T23:59:59+09:00' },
-  { id: '2026-09-19-unreleased-umeda', status: 'unreleased', date: '2026-09-19', day: 'SAT', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-19T23:59:59+09:00' },
+  {
+    id: '2026-09-19-idol-tribe', status: 'published',
+    date: '2026-09-19', day: 'SAT', homeUntil: '2026-09-19T21:00:00+09:00',
+    title: 'IDOL TRIBE', place: 'ドン・キホーテ梅田本店',
+    openStart: 'START 16:30', performance: '🎤 18:50–19:10 / 📸 20:00–21:00',
+    note: '観覧無料 / ※ミブはお休み', ticket: '', badge: 'LIVE'
+  },
   { id: '2026-09-19-unreleased-namba', status: 'unreleased', date: '2026-09-19', day: 'SAT', title: '難波【未解禁】', place: '', homeUntil: '2026-09-19T23:59:59+09:00' },
   { id: '2026-09-20-unreleased-osaka', status: 'unreleased', date: '2026-09-20', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-20T23:59:59+09:00' },
   { id: '2026-09-22-unreleased-fukuoka', status: 'unreleased', date: '2026-09-22', day: 'TUE', title: '福岡【未解禁】', place: '', homeUntil: '2026-09-22T23:59:59+09:00' },
