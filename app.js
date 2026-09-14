@@ -24,7 +24,7 @@ appLinks.forEach((attrs) => {
 });
 
 // ライブ情報はここだけ更新すれば、ホームと予定ページの両方に反映されます。
-// status: 'published' = 公開して表示 / 'unreleased' = 内部保存のみ（画面には絶対表示しない）
+// status: 'published' = 詳細を公開 / 'unreleased' = 日付と本数だけ公開し、詳細は隠す。
 // 未解禁予定は先に unreleased で登録し、公式解禁後に詳細を追記して published へ変更する。
 // homeUntil は「ホームの次回ライブ候補から外す時刻」。特典会終了時刻を基本に設定。
 const liveEvents = [
@@ -50,7 +50,7 @@ const liveEvents = [
     note: '予約 ¥1,500 / 当日 ¥2,500（+1D）', ticket: 'https://ticketdive.com/event/SIO0913', badge: 'LIVE'
   },
 
-  // ===== 未解禁予定：内部管理専用。公式解禁まで画面には出さない =====
+  // ===== 未解禁予定：日付と本数だけ表示。内部の場所・仮タイトルは画面に出さない =====
   { id: '2026-09-13-unreleased-osaka-1', status: 'unreleased', date: '2026-09-13', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-13T23:59:59+09:00' },
   { id: '2026-09-13-unreleased-osaka-2', status: 'unreleased', date: '2026-09-13', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-13T23:59:59+09:00' },
   { id: '2026-09-17-unreleased-umeda', status: 'unreleased', date: '2026-09-17', day: 'THU', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-17T23:59:59+09:00' },
@@ -76,6 +76,7 @@ const liveEvents = [
 
 const publishedLiveEvents = () => liveEvents.filter((event) => event.status === 'published');
 const upcomingPublishedLiveEvents = (now = new Date()) => publishedLiveEvents().filter((event) => now < new Date(event.homeUntil));
+const upcomingLiveEvents = (now = new Date()) => liveEvents.filter((event) => now < new Date(event.homeUntil));
 
 const shortDate = (date) => {
   const [, month, day] = date.split('-');
@@ -95,17 +96,21 @@ const eventLines = (event) => `
   ${event.note ? `<p class="live-note">${event.note}</p>` : ''}
   ${event.ticket ? `<a class="primary live-ticket" href="${event.ticket}" target="_blank" rel="noopener noreferrer">チケットを購入する →</a>` : ''}
 `;
+const unreleasedLines = (date, day, count) => `
+  <div class="live-date"><strong>${shortDate(date)}</strong><span>${day}</span></div>
+  <span class="badge">LIVE</span>
+  <h3>ライブ予定 ${count}本あり</h3>
+  <p class="muted live-time">詳細発表をお待ちください</p>
+`;
 
 function upcomingTwoLiveDates(now = new Date()) {
-  // 未解禁イベントは NEXT LIVE の日付計算にも絶対に使わない。
-  const upcoming = upcomingPublishedLiveEvents(now);
+  const upcoming = upcomingLiveEvents(now);
   const dates = [...new Set(upcoming.map((event) => event.date))].slice(0, 2);
   return { upcoming, dates };
 }
 
 const homePage = document.getElementById('home');
 if (homePage) {
-  // 終了したミブ生誕の固定プロモーションだけ非表示にし、うーたん生誕は残す。
   const mibuBirthdayPromo = [...homePage.querySelectorAll('.important-live-card')].find((card) => card.querySelector('img[alt="ミブ生誕祭"]'));
   if (mibuBirthdayPromo) mibuBirthdayPromo.remove();
 
@@ -126,13 +131,24 @@ if (homePage) {
       dayWrap.className = 'auto-live-day';
       if (dateIndex > 0) dayWrap.style.marginTop = '18px';
       const eventsForDay = upcoming.filter((event) => event.date === date);
-      eventsForDay.forEach((event, eventIndex) => {
+      const publishedForDay = eventsForDay.filter((event) => event.status === 'published');
+      const unreleasedForDay = eventsForDay.filter((event) => event.status === 'unreleased');
+
+      publishedForDay.forEach((event) => {
         const card = document.createElement('article');
         card.className = 'card next-live';
-        if (eventIndex > 0) card.style.marginTop = '14px';
+        if (dayWrap.children.length) card.style.marginTop = '14px';
         card.innerHTML = eventLines(event);
         dayWrap.appendChild(card);
       });
+
+      if (unreleasedForDay.length) {
+        const card = document.createElement('article');
+        card.className = 'card next-live unreleased-live';
+        if (dayWrap.children.length) card.style.marginTop = '14px';
+        card.innerHTML = unreleasedLines(date, unreleasedForDay[0].day, unreleasedForDay.length);
+        dayWrap.appendChild(card);
+      }
       nextHeading.parentNode.insertBefore(dayWrap, node);
     });
   }
@@ -156,19 +172,43 @@ if (livePage) {
   const liveList = livePage.querySelector('.live-list');
   if (liveList) {
     liveList.innerHTML = '';
-    // 公開済みかつ終了前のライブだけを表示。Google Calendar側の履歴は消さない。
-    upcomingPublishedLiveEvents().forEach((event, index) => {
-      const card = document.createElement('article');
-      card.className = `card live-card auto-live-event ${event.badge === '重要LIVE' ? 'birthday-schedule' : ''}`;
-      if (index > 0) card.style.marginTop = '14px';
-      card.innerHTML = `<div class="live-card-top">${eventLines(event)}</div>`;
-      const dateBox = card.querySelector('.live-date');
-      const badge = card.querySelector('.badge');
-      const top = card.querySelector('.live-card-top');
-      [...top.children].forEach((child) => {
-        if (child !== dateBox && child !== badge) card.appendChild(child);
+    const upcoming = upcomingLiveEvents();
+    const dates = [...new Set(upcoming.map((event) => event.date))];
+    dates.forEach((date) => {
+      const eventsForDay = upcoming.filter((event) => event.date === date);
+      const publishedForDay = eventsForDay.filter((event) => event.status === 'published');
+      const unreleasedForDay = eventsForDay.filter((event) => event.status === 'unreleased');
+
+      publishedForDay.forEach((event) => {
+        const card = document.createElement('article');
+        card.className = `card live-card auto-live-event ${event.badge === '重要LIVE' ? 'birthday-schedule' : ''}`;
+        if (liveList.children.length) card.style.marginTop = '14px';
+        card.dataset.eventId = event.id;
+        card.dataset.liveDate = event.date;
+        card.innerHTML = `<div class="live-card-top">${eventLines(event)}</div>`;
+        const dateBox = card.querySelector('.live-date');
+        const badge = card.querySelector('.badge');
+        const top = card.querySelector('.live-card-top');
+        [...top.children].forEach((child) => {
+          if (child !== dateBox && child !== badge) card.appendChild(child);
+        });
+        liveList.appendChild(card);
       });
-      liveList.appendChild(card);
+
+      if (unreleasedForDay.length) {
+        const card = document.createElement('article');
+        card.className = 'card live-card auto-live-event unreleased-live';
+        if (liveList.children.length) card.style.marginTop = '14px';
+        card.dataset.liveDate = date;
+        card.innerHTML = `<div class="live-card-top">${unreleasedLines(date, unreleasedForDay[0].day, unreleasedForDay.length)}</div>`;
+        const dateBox = card.querySelector('.live-date');
+        const badge = card.querySelector('.badge');
+        const top = card.querySelector('.live-card-top');
+        [...top.children].forEach((child) => {
+          if (child !== dateBox && child !== badge) card.appendChild(child);
+        });
+        liveList.appendChild(card);
+      }
     });
   }
 }
@@ -224,23 +264,16 @@ navItems.forEach((item) => {
 const initialHash = location.hash.replace('#', '');
 if (initialHash) showPage(initialHash, false);
 
-// 予定ページはTimeTree埋め込みではなく、アプリの公開LIVEデータをカレンダー表示する。
-// Google Calendarへの同期も同じliveEventsを元にするため、表示と同期元を一本化できる。
+// 予定ページはTimeTree埋め込みではなく、アプリのLIVEデータをカレンダー表示する。
 (function renderInAppLiveCalendar() {
   if (!livePage) return;
   const iframe = livePage.querySelector('iframe[title="カレンダー"]');
   const calendarCard = iframe?.closest('article.card');
   if (!calendarCard) return;
 
-  // 終了済みのライブはアプリの予定表示から除外する。Google Calendarのイベント自体は残る。
-  const events = upcomingPublishedLiveEvents();
+  const events = upcomingLiveEvents();
   const monthKeys = [...new Set(events.map((event) => event.date.slice(0, 7)))].sort();
   if (!monthKeys.length) return;
-
-  const liveCards = [...livePage.querySelectorAll('.auto-live-event')];
-  events.forEach((event, index) => {
-    if (liveCards[index]) liveCards[index].dataset.eventId = event.id;
-  });
 
   const style = document.createElement('style');
   style.textContent = `
@@ -264,7 +297,7 @@ if (initialHash) showPage(initialHash, false);
     </div>
     <div class="setsuna-cal-week"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div>
     <div class="setsuna-cal-grid"></div>
-    <div class="setsuna-cal-legend"><i></i><span>紫の印がライブ日。タップすると詳細へ移動します。</span></div>
+    <div class="setsuna-cal-legend"><i></i><span>紫の印がライブ日。タップすると予定へ移動します。</span></div>
   `;
 
   const monthsWrap = calendarCard.querySelector('.setsuna-cal-months');
@@ -297,9 +330,13 @@ if (initialHash) showPage(initialHash, false);
       button.innerHTML = `<strong>${day}</strong><span class="setsuna-cal-dots">${dayEvents.slice(0, 3).map(() => '<i class="setsuna-cal-dot"></i>').join('')}</span>`;
       if (dayEvents.length) {
         button.type = 'button';
-        button.setAttribute('aria-label', `${month}月${day}日 ${dayEvents.map((event) => event.title).join('、')}`);
+        const published = dayEvents.filter((event) => event.status === 'published');
+        const unreleasedCount = dayEvents.filter((event) => event.status === 'unreleased').length;
+        const labels = published.map((event) => event.title);
+        if (unreleasedCount) labels.push(`詳細未発表のライブ予定${unreleasedCount}本`);
+        button.setAttribute('aria-label', `${month}月${day}日 ${labels.join('、')}`);
         button.addEventListener('click', () => {
-          const target = livePage.querySelector(`[data-event-id="${dayEvents[0].id}"]`);
+          const target = livePage.querySelector(`[data-live-date="${date}"]`);
           if (!target) return;
           target.scrollIntoView({ behavior: 'smooth', block: 'center' });
           target.classList.remove('calendar-focus');
@@ -325,6 +362,5 @@ if (initialHash) showPage(initialHash, false);
     monthsWrap.appendChild(button);
   });
 
-  // 月が変わって前月のライブがすべて終了したら、先頭の月が自動で次月になる。
   renderMonth(monthKeys[0]);
 })();
