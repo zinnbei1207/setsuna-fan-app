@@ -102,6 +102,15 @@ const unreleasedLines = (date, day, count) => `
   <h3>ライブ予定 ${count}本あり</h3>
   <p class="muted live-time">詳細発表をお待ちください</p>
 `;
+const unreleasedCaution = '※未解禁のライブ予定は変更・中止になる場合があります。最新情報は公式発表をご確認ください。';
+const addUnreleasedCaution = (container) => {
+  if (!container || container.querySelector('.unreleased-live-caution')) return;
+  const note = document.createElement('p');
+  note.className = 'muted unreleased-live-caution';
+  note.textContent = unreleasedCaution;
+  note.style.cssText = 'margin:10px 4px 0;font-size:9px;line-height:1.7;color:#8f8799;';
+  container.appendChild(note);
+};
 
 function upcomingTwoLiveDates(now = new Date()) {
   const upcoming = upcomingLiveEvents(now);
@@ -117,7 +126,7 @@ if (homePage) {
   const nextHeading = [...homePage.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim().startsWith('NEXT LIVE'));
   if (nextHeading) {
     let node = nextHeading.nextElementSibling;
-    while (node && node.matches('article.card.next-live, .auto-live-day')) {
+    while (node && node.matches('article.card.next-live, .auto-live-day, .unreleased-live-caution')) {
       const next = node.nextElementSibling;
       node.remove();
       node = next;
@@ -125,6 +134,7 @@ if (homePage) {
 
     const { upcoming, dates } = upcomingTwoLiveDates();
     nextHeading.textContent = dates.length ? `NEXT LIVE · ${dates.map(headingDate).join(' ＆ ')}` : 'NEXT LIVE';
+    let hasUnreleasedOnHome = false;
 
     dates.forEach((date, dateIndex) => {
       const dayWrap = document.createElement('div');
@@ -143,6 +153,7 @@ if (homePage) {
       });
 
       if (unreleasedForDay.length) {
+        hasUnreleasedOnHome = true;
         const card = document.createElement('article');
         card.className = 'card next-live unreleased-live';
         if (dayWrap.children.length) card.style.marginTop = '14px';
@@ -151,6 +162,14 @@ if (homePage) {
       }
       nextHeading.parentNode.insertBefore(dayWrap, node);
     });
+
+    if (hasUnreleasedOnHome) {
+      const note = document.createElement('p');
+      note.className = 'muted unreleased-live-caution';
+      note.textContent = unreleasedCaution;
+      note.style.cssText = 'margin:10px 4px 0;font-size:9px;line-height:1.7;color:#8f8799;';
+      nextHeading.parentNode.insertBefore(note, node);
+    }
   }
 
   if (!homePage.querySelector('.about-fan-app')) {
@@ -174,6 +193,7 @@ if (livePage) {
     liveList.innerHTML = '';
     const upcoming = upcomingLiveEvents();
     const dates = [...new Set(upcoming.map((event) => event.date))];
+    let hasUnreleasedOnLivePage = false;
     dates.forEach((date) => {
       const eventsForDay = upcoming.filter((event) => event.date === date);
       const publishedForDay = eventsForDay.filter((event) => event.status === 'published');
@@ -196,6 +216,7 @@ if (livePage) {
       });
 
       if (unreleasedForDay.length) {
+        hasUnreleasedOnLivePage = true;
         const card = document.createElement('article');
         card.className = 'card live-card auto-live-event unreleased-live';
         if (liveList.children.length) card.style.marginTop = '14px';
@@ -210,6 +231,7 @@ if (livePage) {
         liveList.appendChild(card);
       }
     });
+    if (hasUnreleasedOnLivePage) addUnreleasedCaution(liveList);
   }
 }
 
