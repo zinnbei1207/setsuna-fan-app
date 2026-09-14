@@ -186,6 +186,7 @@ if (homePage) {
   }
 }
 
+let livePageHasUnreleased = false;
 const livePage = document.getElementById('live');
 if (livePage) {
   const liveList = livePage.querySelector('.live-list');
@@ -193,7 +194,6 @@ if (livePage) {
     liveList.innerHTML = '';
     const upcoming = upcomingLiveEvents();
     const dates = [...new Set(upcoming.map((event) => event.date))];
-    let hasUnreleasedOnLivePage = false;
     dates.forEach((date) => {
       const eventsForDay = upcoming.filter((event) => event.date === date);
       const publishedForDay = eventsForDay.filter((event) => event.status === 'published');
@@ -216,7 +216,7 @@ if (livePage) {
       });
 
       if (unreleasedForDay.length) {
-        hasUnreleasedOnLivePage = true;
+        livePageHasUnreleased = true;
         const card = document.createElement('article');
         card.className = 'card live-card auto-live-event unreleased-live';
         if (liveList.children.length) card.style.marginTop = '14px';
@@ -231,7 +231,6 @@ if (livePage) {
         liveList.appendChild(card);
       }
     });
-    if (hasUnreleasedOnLivePage) addUnreleasedCaution(liveList);
   }
 }
 
@@ -321,6 +320,14 @@ if (initialHash) showPage(initialHash, false);
     <div class="setsuna-cal-grid"></div>
     <div class="setsuna-cal-legend"><i></i><span>紫の印がライブ日。タップすると予定へ移動します。</span></div>
   `;
+
+  if (livePageHasUnreleased && !livePage.querySelector('.schedule-unreleased-caution')) {
+    const note = document.createElement('p');
+    note.className = 'muted unreleased-live-caution schedule-unreleased-caution';
+    note.textContent = unreleasedCaution;
+    note.style.cssText = 'margin:10px 4px 18px;font-size:9px;line-height:1.7;color:#8f8799;';
+    calendarCard.insertAdjacentElement('afterend', note);
+  }
 
   const monthsWrap = calendarCard.querySelector('.setsuna-cal-months');
   const grid = calendarCard.querySelector('.setsuna-cal-grid');
