@@ -88,11 +88,11 @@
   `;
   document.head.appendChild(style);
 
-  // NEXT LIVE の直後、BIRTHDAY EVENT の前に置く。
+  // NEXT LIVE のカードと注意文をひとまとまりとして扱い、その直後、BIRTHDAY EVENT の前に置く。
   const nextHeading = [...home.querySelectorAll('.eyebrow')].find((heading) => heading.textContent.trim().startsWith('NEXT LIVE'));
   if (nextHeading) {
     let insertBefore = nextHeading.nextElementSibling;
-    while (insertBefore && insertBefore.matches('article.card.next-live, .auto-live-day')) {
+    while (insertBefore && insertBefore.matches('article.card.next-live, .auto-live-day, .unreleased-live-caution')) {
       insertBefore = insertBefore.nextElementSibling;
     }
     home.insertBefore(section, insertBefore);
