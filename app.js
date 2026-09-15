@@ -66,7 +66,7 @@ const liveEvents = [
     date: '2026-09-19', day: 'SAT', homeUntil: '2026-09-19T23:59:59+09:00',
     title: 'OSU FESTIVAL', place: '湊町リバープレイス プラザ1',
     openStart: 'START 11:10', performance: '🎤 15:00–15:20',
-    note: '観覧無料 / 撮影PASS ¥1,000 / 優先エリア ¥1,000 / 応援チケット ¥1,000', ticket: '', badge: 'LIVE'
+    note: '観覧無料 / 撮影PASS ¥1,000 / 優先エリア ¥1,000 / 応援チケット ¥1,000 / ※ミブはお休み', ticket: '', badge: 'LIVE'
   },
   { id: '2026-09-20-unreleased-osaka', status: 'unreleased', date: '2026-09-20', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-20T23:59:59+09:00' },
   { id: '2026-09-22-unreleased-fukuoka', status: 'unreleased', date: '2026-09-22', day: 'TUE', title: '福岡【未解禁】', place: '', homeUntil: '2026-09-22T23:59:59+09:00' },
