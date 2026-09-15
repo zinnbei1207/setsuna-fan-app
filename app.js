@@ -61,7 +61,13 @@ const liveEvents = [
     openStart: 'START 16:30', performance: '🎤 18:50–19:10 / 📸 20:00–21:00',
     note: '観覧無料 / 撮影PASS ¥1,000 / 応援ブレスレット ¥1,000 / ※ミブはお休み', ticket: '', badge: 'LIVE'
   },
-  { id: '2026-09-19-unreleased-namba', status: 'unreleased', date: '2026-09-19', day: 'SAT', title: '難波【未解禁】', place: '', homeUntil: '2026-09-19T23:59:59+09:00' },
+  {
+    id: '2026-09-19-osu-festival', status: 'published',
+    date: '2026-09-19', day: 'SAT', homeUntil: '2026-09-19T23:59:59+09:00',
+    title: 'OSU FESTIVAL', place: '湊町リバープレイス プラザ1',
+    openStart: 'START 11:10', performance: '🎤 15:00–15:20',
+    note: '観覧無料 / 撮影PASS ¥1,000 / 優先エリア ¥1,000 / 応援チケット ¥1,000', ticket: '', badge: 'LIVE'
+  },
   { id: '2026-09-20-unreleased-osaka', status: 'unreleased', date: '2026-09-20', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-20T23:59:59+09:00' },
   { id: '2026-09-22-unreleased-fukuoka', status: 'unreleased', date: '2026-09-22', day: 'TUE', title: '福岡【未解禁】', place: '', homeUntil: '2026-09-22T23:59:59+09:00' },
   { id: '2026-09-26-unreleased-osaka-1', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
@@ -78,7 +84,15 @@ const liveEvents = [
     ticket: 'https://tiget.net/events/503695', badge: '重要LIVE'
   },
   { id: '2026-10-04-unreleased-osaka', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' }
-].sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
+];
+
+const eventSortTime = (event) => {
+  const start = event.openStart?.match(/START\s*(\d{1,2}:\d{2})/i)?.[1];
+  if (start) return start.padStart(5, '0');
+  const performance = event.performance?.match(/(\d{1,2}:\d{2})/)?.[1];
+  return performance ? performance.padStart(5, '0') : '99:99';
+};
+liveEvents.sort((a, b) => a.date.localeCompare(b.date) || eventSortTime(a).localeCompare(eventSortTime(b)) || a.id.localeCompare(b.id));
 
 const publishedLiveEvents = () => liveEvents.filter((event) => event.status === 'published');
 const upcomingPublishedLiveEvents = (now = new Date()) => publishedLiveEvents().filter((event) => now < new Date(event.homeUntil));
