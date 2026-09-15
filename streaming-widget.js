@@ -14,7 +14,7 @@
   };
 
   const utanTicketStreams = [
-    { date: '2026-09-15', time: '20:00〜' },
+    { date: '2026-09-16', time: '未定' },
     { date: '2026-09-17', time: '未定' },
     { date: '2026-09-19', time: '未定' },
     { date: '2026-09-20', time: '未定' },
