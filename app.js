@@ -74,7 +74,13 @@ const liveEvents = [
     openStart: 'START 11:10', performance: '🎤 15:00–15:20 / 📸 15:30–16:30',
     note: '観覧無料 / 撮影PASS ¥1,000 / 優先エリア ¥1,000 / 応援チケット ¥1,000 / ※ミブはお休み', ticket: '', badge: 'LIVE'
   },
-  { id: '2026-09-20-unreleased-osaka', status: 'unreleased', date: '2026-09-20', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-20T23:59:59+09:00' },
+  {
+    id: '2026-09-20-idol-cascade', status: 'published',
+    date: '2026-09-20', day: 'SUN', homeUntil: '2026-09-20T18:25:00+09:00',
+    title: 'IDOL CASCADE ～読書の秋 SP～', place: 'スパワールド 正面玄関横',
+    openStart: '開場 10:00 / 開演 10:20', performance: '🎤 17:00–17:20 / 📸 17:25–18:25',
+    note: '観覧無料 / 撮影PASS ¥1,000 / 優先エリア ¥1,000', ticket: '', badge: 'LIVE'
+  },
   { id: '2026-09-22-unreleased-fukuoka', status: 'unreleased', date: '2026-09-22', day: 'TUE', title: '福岡【未解禁】', place: '', homeUntil: '2026-09-22T23:59:59+09:00' },
   { id: '2026-09-26-unreleased-osaka-1', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
   { id: '2026-09-26-unreleased-osaka-2', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
