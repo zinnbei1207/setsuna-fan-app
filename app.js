@@ -53,7 +53,13 @@ const liveEvents = [
   // ===== 未解禁予定：日付と本数だけ表示。内部の場所・仮タイトルは画面に出さない =====
   { id: '2026-09-13-unreleased-osaka-1', status: 'unreleased', date: '2026-09-13', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-13T23:59:59+09:00' },
   { id: '2026-09-13-unreleased-osaka-2', status: 'unreleased', date: '2026-09-13', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-13T23:59:59+09:00' },
-  { id: '2026-09-17-unreleased-umeda', status: 'unreleased', date: '2026-09-17', day: 'THU', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-17T23:59:59+09:00' },
+  {
+    id: '2026-09-17-show-in-osaka', status: 'published',
+    date: '2026-09-17', day: 'THU', homeUntil: '2026-09-17T21:30:00+09:00',
+    title: 'SHOW IN OSAKA', place: 'Live Bar BK',
+    openStart: 'OPEN 18:30 / START 18:50', performance: '🎤 20:10–20:30 / 📸 20:30–21:30',
+    note: '予約 ¥1,500 / 当日 ¥2,500（+1D）', ticket: 'https://ticketdive.com/event/SIO0917', badge: 'LIVE'
+  },
   {
     id: '2026-09-19-idol-tribe', status: 'published',
     date: '2026-09-19', day: 'SAT', homeUntil: '2026-09-19T21:00:00+09:00',
