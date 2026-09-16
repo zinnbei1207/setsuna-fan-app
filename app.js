@@ -69,9 +69,9 @@ const liveEvents = [
   },
   {
     id: '2026-09-19-osu-festival', status: 'published',
-    date: '2026-09-19', day: 'SAT', homeUntil: '2026-09-19T23:59:59+09:00',
+    date: '2026-09-19', day: 'SAT', homeUntil: '2026-09-19T16:30:00+09:00',
     title: 'OSU FESTIVAL', place: '湊町リバープレイス プラザ1',
-    openStart: 'START 11:10', performance: '🎤 15:00–15:20',
+    openStart: 'START 11:10', performance: '🎤 15:00–15:20 / 📸 15:30–16:30',
     note: '観覧無料 / 撮影PASS ¥1,000 / 優先エリア ¥1,000 / 応援チケット ¥1,000 / ※ミブはお休み', ticket: '', badge: 'LIVE'
   },
   { id: '2026-09-20-unreleased-osaka', status: 'unreleased', date: '2026-09-20', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-20T23:59:59+09:00' },
