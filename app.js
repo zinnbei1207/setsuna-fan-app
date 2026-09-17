@@ -81,7 +81,13 @@ const liveEvents = [
     openStart: '開場 10:00 / 開演 10:20', performance: '🎤 17:00–17:20 / 📸 17:25–18:25',
     note: '観覧無料 / 撮影PASS ¥1,000 / 優先エリア ¥1,000', ticket: '', badge: 'LIVE'
   },
-  { id: '2026-09-22-unreleased-fukuoka', status: 'unreleased', date: '2026-09-22', day: 'TUE', title: '福岡【未解禁】', place: '', homeUntil: '2026-09-22T23:59:59+09:00' },
+  {
+    id: '2026-09-22-fukuoka-idol-party', status: 'published',
+    date: '2026-09-22', day: 'TUE', homeUntil: '2026-09-22T20:30:00+09:00',
+    title: 'FUKUOKA IDOL PARTY', place: 'スカラエスパシオ',
+    openStart: 'OPEN 13:30 / START 13:50', performance: '🎤 18:45–19:10 / 📸 19:40–20:30（終演後物販）',
+    note: '前方 ¥4,000 / 通常 ¥2,000 / 当日 +¥1,000 / 各+1D / 初福岡遠征', ticket: 'https://ticketdive.com/event/FK0922', badge: 'LIVE'
+  },
   { id: '2026-09-26-unreleased-osaka-1', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
   { id: '2026-09-26-unreleased-osaka-2', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
   { id: '2026-09-27-unreleased-osaka-1', status: 'unreleased', date: '2026-09-27', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-27T23:59:59+09:00' },
