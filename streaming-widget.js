@@ -1,17 +1,8 @@
 // ホーム用「配信情報」ウィジェット
-// 日本時間の日付を基準に、配信強化週間の「今日の配信予定」と
-// うーたん生誕チケット配信の次回予定を自動表示する。
+// 日本時間の日付を基準に、うーたん生誕チケット配信の次回予定を自動表示する。
 (function renderStreamingWidget() {
   const home = document.getElementById('home');
   if (!home || home.querySelector('.streaming-widget')) return;
-
-  const strengthenWeek = {
-    '2026-09-14': ['うーたん', 'ミブ'],
-    '2026-09-15': ['ミブ'],
-    '2026-09-16': ['ミブ', 'えら'],
-    '2026-09-17': ['うーたん', 'ミブ', 'えら'],
-    '2026-09-18': ['うーたん', 'えら']
-  };
 
   const utanTicketStreams = [
     { date: '2026-09-16', time: '未定' },
@@ -33,9 +24,8 @@
   const get = (type) => parts.find((part) => part.type === type)?.value;
   const today = `${get('year')}-${get('month')}-${get('day')}`;
 
-  const todayMembers = strengthenWeek[today] || null;
   const nextTicketStream = utanTicketStreams.find((item) => item.date >= today) || null;
-  if (!todayMembers && !nextTicketStream) return;
+  if (!nextTicketStream) return;
 
   const formatDate = (date) => {
     const [, month, day] = date.split('-');
@@ -47,19 +37,8 @@
   section.innerHTML = `
     <div class="section-heading"><h2>STREAMING</h2><span>配信情報</span></div>
     <article class="streaming-card">
-      ${todayMembers ? `
-        <div class="streaming-row streaming-today">
-          <div class="streaming-icon">📡</div>
-          <div class="streaming-copy">
-            <span class="streaming-label">永遠のセツナ 配信強化週間</span>
-            <strong>今日の配信予定：${todayMembers.join('・')}</strong>
-            <small>配信時間・変更は各メンバーの告知をご確認ください。</small>
-            <a class="streaming-image-link" href="streaming_week_202609.jpeg" target="_blank" rel="noopener noreferrer">告知画像を見る →</a>
-          </div>
-        </div>
-      ` : ''}
       ${nextTicketStream ? `
-        <div class="streaming-row ${todayMembers ? 'streaming-divider' : ''}">
+        <div class="streaming-row">
           <div class="streaming-icon">🎫</div>
           <div class="streaming-copy">
             <span class="streaming-label">うーたん生誕 チケット配信</span>
