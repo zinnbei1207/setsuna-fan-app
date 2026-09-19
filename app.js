@@ -340,7 +340,7 @@ if (initialHash) showPage(initialHash, false);
     .setsuna-cal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
     .setsuna-cal-title{display:flex;flex-direction:column;gap:3px}.setsuna-cal-title strong{font-size:13px;letter-spacing:.12em}.setsuna-cal-title span{font-size:10px;color:#aaa4b4}
     .setsuna-cal-months{display:flex;gap:6px}.setsuna-cal-month{border:1px solid #443750;background:#211d29;color:#9e95aa;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800}.setsuna-cal-month.active{background:#8061b7;border-color:#a782df;color:#fff}
-    .setsuna-cal-week,.setsuna-cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.setsuna-cal-week{margin-bottom:5px}.setsuna-cal-week span{text-align:center;font-size:9px;color:#81798a;font-weight:800;padding:3px 0}.setsuna-cal-week span:first-child{color:#d18b9c}.setsuna-cal-week span:last-child{color:#8ca4da}
+    .setsuna-cal-week,.setsuna-cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.setsuna-cal-week{margin-bottom:5px}.setsuna-cal-week span{text-align:center;font-size:9px;color:#81798a;font-weight:800;padding:3px 0}.setsuna-cal-week span:nth-child(6){color:#8ca4da}.setsuna-cal-week span:last-child{color:#d18b9c}
     .setsuna-cal-day{min-height:52px;border:1px solid #312b3b;border-radius:11px;background:#19151f;color:#eee9f3;padding:7px 4px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;font-size:11px}.setsuna-cal-day.empty{visibility:hidden}.setsuna-cal-day.has-live{cursor:pointer;border-color:#674e83;background:linear-gradient(145deg,#2b2037,#201a27);box-shadow:inset 0 0 0 1px rgba(178,139,220,.08)}.setsuna-cal-day.important{border-color:#9b6bd2;background:radial-gradient(circle at 75% 20%,rgba(167,118,232,.26),transparent 45%),linear-gradient(145deg,#32213f,#211827)}.setsuna-cal-day strong{font-size:12px}.setsuna-cal-dots{display:flex;gap:3px;min-height:5px}.setsuna-cal-dot{width:5px;height:5px;border-radius:50%;background:#a986db}.setsuna-cal-day.important .setsuna-cal-dot{box-shadow:0 0 7px rgba(199,170,255,.75)}
     .setsuna-cal-legend{display:flex;align-items:center;gap:7px;margin:12px 2px 0;color:#8f8799;font-size:9px;line-height:1.5}.setsuna-cal-legend i{width:6px;height:6px;border-radius:50%;background:#a986db;box-shadow:0 0 7px rgba(199,170,255,.55)}
     .auto-live-event.calendar-focus{animation:setsunaPulse .8s ease}@keyframes setsunaPulse{0%{box-shadow:0 0 0 0 rgba(167,118,232,.65)}100%{box-shadow:0 0 0 14px rgba(167,118,232,0)}}
@@ -354,7 +354,7 @@ if (initialHash) showPage(initialHash, false);
       <div class="setsuna-cal-title"><strong>LIVE CALENDAR</strong><span>これからのライブ予定</span></div>
       <div class="setsuna-cal-months"></div>
     </div>
-    <div class="setsuna-cal-week"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div>
+    <div class="setsuna-cal-week"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
     <div class="setsuna-cal-grid"></div>
     <div class="setsuna-cal-legend"><i></i><span>紫の印がライブ日。タップすると予定へ移動します。</span></div>
   `;
@@ -374,7 +374,7 @@ if (initialHash) showPage(initialHash, false);
     const [yearText, monthText] = key.split('-');
     const year = Number(yearText);
     const month = Number(monthText);
-    const firstDay = new Date(year, month - 1, 1).getDay();
+    const firstDay = (new Date(year, month - 1, 1).getDay() + 6) % 7;
     const lastDate = new Date(year, month, 0).getDate();
     const byDate = new Map();
     events.filter((event) => event.date.startsWith(`${key}-`)).forEach((event) => {
