@@ -101,7 +101,14 @@ const liveEvents = [
     openStart: 'OPEN 18:10 / START 18:30', performance: '', note: '',
     ticket: 'https://tiget.net/events/503695', badge: '重要LIVE'
   },
-  { id: '2026-10-04-unreleased-osaka', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' }
+  { id: '2026-10-04-unreleased-osaka', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
+  {
+    id: '2026-10-11-super-lovely-sp', status: 'published',
+    date: '2026-10-11', day: 'SUN', homeUntil: '2026-10-11T18:25:00+09:00',
+    title: '超！Lovely SP', place: 'G8 ナンバーゲート',
+    openStart: '', performance: '🎤 16:45–17:00 / 📸 17:25–18:25',
+    note: '前方エリア ¥3,000 / 一般 ¥1,000 / 当日 +¥1,000（+1DRINK ¥600）', ticket: 'https://ticketdive.com/event/SLSP_1011', badge: 'LIVE'
+  }
 ];
 
 const eventSortTime = (event) => {
