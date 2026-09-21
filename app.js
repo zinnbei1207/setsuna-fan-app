@@ -109,14 +109,26 @@ const liveEvents = [
     openStart: 'OPEN 18:10 / START 18:30', performance: '', note: '',
     ticket: 'https://tiget.net/events/503695', badge: '重要LIVE'
   },
-  { id: '2026-10-04-unreleased-osaka', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
+  { id: '2026-10-04-unreleased-osaka-1', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
+  { id: '2026-10-04-unreleased-osaka-2', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
+  { id: '2026-10-04-unreleased-osaka-3', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
   {
     id: '2026-10-11-super-lovely-sp', status: 'published',
     date: '2026-10-11', day: 'SUN', homeUntil: '2026-10-11T18:25:00+09:00',
     title: '超！Lovely SP', place: 'G8 ナンバーゲート',
     openStart: '', performance: '🎤 16:45–17:00 / 📸 17:25–18:25',
     note: '前方エリア ¥3,000 / 一般 ¥1,000 / 当日 +¥1,000（+1DRINK ¥600）', ticket: 'https://ticketdive.com/event/SLSP_1011', badge: 'LIVE'
-  }
+  },
+  { id: '2026-10-11-unreleased-osaka-1', status: 'unreleased', date: '2026-10-11', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-11T23:59:59+09:00' },
+  { id: '2026-10-16-unreleased-osaka-1', status: 'unreleased', date: '2026-10-16', day: 'FRI', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-16T23:59:59+09:00' },
+  { id: '2026-10-17-unreleased-osaka-1', status: 'unreleased', date: '2026-10-17', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-17T23:59:59+09:00' },
+  { id: '2026-10-17-unreleased-osaka-2', status: 'unreleased', date: '2026-10-17', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-17T23:59:59+09:00' },
+  { id: '2026-10-18-unreleased-osaka-1', status: 'unreleased', date: '2026-10-18', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-18T23:59:59+09:00' },
+  { id: '2026-10-22-unreleased-osaka-1', status: 'unreleased', date: '2026-10-22', day: 'THU', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-22T23:59:59+09:00' },
+  { id: '2026-10-24-unreleased-osaka-1', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
+  { id: '2026-10-24-unreleased-osaka-2', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
+  { id: '2026-10-25-unreleased-osaka-1', status: 'unreleased', date: '2026-10-25', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-25T23:59:59+09:00' },
+  { id: '2026-10-31-unreleased-osaka-1', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' }
 ];
 
 const eventSortTime = (event) => {
