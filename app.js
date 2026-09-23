@@ -96,7 +96,14 @@ const liveEvents = [
     note: 'SPARKチケット ¥30,000 / 一般チケット ¥7,500 / お目当て特典：3セツナポイント付与・チェキ1枚無料',
     ticket: 'https://ticketdive.com/event/spark2026yamanakako', badge: '重要LIVE'
   },
-  { id: '2026-09-26-unreleased-osaka-1', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
+  {
+    id: '2026-09-26-idol-tribe', status: 'published',
+    date: '2026-09-26', day: 'SAT', homeUntil: '2026-09-26T15:15:00+09:00',
+    title: 'IDOL TRIBE', place: 'うえほんまちハイハイタウン',
+    openStart: 'START 13:30', performance: '🎤 13:50–14:10 / 📸 14:15–15:15（並行物販B）',
+    note: '観覧無料 / 撮影PASS ¥1,000 / 前方エリア ¥1,000 / 応援ブレスレット ¥1,000',
+    ticket: '', badge: 'LIVE'
+  },
   { id: '2026-09-26-unreleased-osaka-2', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
   { id: '2026-09-27-unreleased-osaka-1', status: 'unreleased', date: '2026-09-27', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-27T23:59:59+09:00' },
   { id: '2026-09-27-unreleased-osaka-2', status: 'unreleased', date: '2026-09-27', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-27T23:59:59+09:00' },
