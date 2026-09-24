@@ -131,7 +131,7 @@ const liveEvents = [
   {
     id: '2026-10-17-osu-festival', status: 'published',
     date: '2026-10-17', day: 'SAT', homeUntil: '2026-10-17T23:59:59+09:00',
-    title: 'OSU FESTIVAL', place: '湊町リバープレイス',
+    title: '押忍フェス', place: '湊町リバープレイス',
     openStart: 'START 12:00', performance: '🎤 出演時間未定 / 📸 特典会時間未定',
     note: '観覧無料 / 撮影チケット ¥1,000 / 優先エリア観覧チケット ¥1,000 / 推すチケット ¥1,000',
     ticket: '', badge: 'LIVE'
