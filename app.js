@@ -105,6 +105,14 @@ const liveEvents = [
     ticket: '', badge: 'LIVE'
   },
   {
+    id: '2026-09-26-show-in-osaka', status: 'published',
+    date: '2026-09-26', day: 'SAT', homeUntil: '2026-09-26T18:40:00+09:00',
+    title: 'SHOW IN OSAKA', place: 'Live Bar BK',
+    openStart: 'OPEN 16:00 / START 16:20', performance: '🎤 17:20–17:40 / 📸 17:40–18:40',
+    note: '予約 ¥1,500 / 当日 ¥2,500（+1D）',
+    ticket: 'https://ticketdive.com/event/SIO0926_3', badge: 'LIVE'
+  },
+  {
     id: '2026-09-27-redsunday', status: 'published',
     date: '2026-09-27', day: 'SUN', homeUntil: '2026-09-27T11:05:00+09:00',
     title: 'REDSUNDAY', place: '北堀江club vijon',
