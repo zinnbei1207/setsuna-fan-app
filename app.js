@@ -97,6 +97,14 @@ const liveEvents = [
     ticket: 'https://ticketdive.com/event/spark2026yamanakako', badge: '重要LIVE'
   },
   {
+    id: '2026-09-26-show-in-osaka-1', status: 'published',
+    date: '2026-09-26', day: 'SAT', homeUntil: '2026-09-26T12:40:00+09:00',
+    title: 'SHOW IN OSAKA', place: 'Live Bar BK',
+    openStart: '', performance: '🎤 11:20–11:40 / 📸 11:40–12:40',
+    note: '予約 ¥1,500 / 当日 ¥2,500（+1D）',
+    ticket: 'https://ticketdive.com/event/SIO0926_1', badge: 'LIVE'
+  },
+  {
     id: '2026-09-26-idol-tribe', status: 'published',
     date: '2026-09-26', day: 'SAT', homeUntil: '2026-09-26T15:15:00+09:00',
     title: 'IDOL TRIBE', place: 'うえほんまちハイハイタウン',
