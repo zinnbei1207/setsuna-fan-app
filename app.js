@@ -115,7 +115,14 @@ const liveEvents = [
     openStart: 'OPEN 18:10 / START 18:30', performance: '', note: '',
     ticket: 'https://tiget.net/events/503695', badge: '重要LIVE'
   },
-  { id: '2026-10-04-unreleased-osaka-1', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
+  {
+    id: '2026-10-04-osu-festival', status: 'published',
+    date: '2026-10-04', day: 'SUN', homeUntil: '2026-10-04T23:59:59+09:00',
+    title: '押忍フェス', place: '湊町リバープレイス プラザ1',
+    openStart: 'START 11:30', performance: '🎤 出演時間未定 / 📸 特典会時間未定',
+    note: '観覧無料 / 撮影チケット ¥1,000（要返却・スマホ撮影無料） / 優先エリア観覧チケット ¥1,000 / 推すチケット ¥1,000（推しからのサイン入り色紙プレゼント）',
+    ticket: '', badge: 'LIVE'
+  },
   { id: '2026-10-04-unreleased-osaka-2', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
   { id: '2026-10-04-unreleased-osaka-3', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
   {
