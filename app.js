@@ -104,7 +104,6 @@ const liveEvents = [
     note: '観覧無料 / 撮影PASS ¥1,000 / 前方エリア ¥1,000 / 応援ブレスレット ¥1,000',
     ticket: '', badge: 'LIVE'
   },
-  { id: '2026-09-26-unreleased-osaka-2', status: 'unreleased', date: '2026-09-26', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-26T23:59:59+09:00' },
   { id: '2026-09-27-unreleased-osaka-1', status: 'unreleased', date: '2026-09-27', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-27T23:59:59+09:00' },
   { id: '2026-09-27-unreleased-osaka-2', status: 'unreleased', date: '2026-09-27', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-27T23:59:59+09:00' },
   { id: '2026-09-28-unreleased-umeda', status: 'unreleased', date: '2026-09-28', day: 'MON', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-28T23:59:59+09:00' },
