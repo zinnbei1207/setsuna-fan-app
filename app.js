@@ -104,7 +104,14 @@ const liveEvents = [
     note: '観覧無料 / 撮影PASS ¥1,000 / 前方エリア ¥1,000 / 応援ブレスレット ¥1,000',
     ticket: '', badge: 'LIVE'
   },
-  { id: '2026-09-27-unreleased-osaka-1', status: 'unreleased', date: '2026-09-27', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-27T23:59:59+09:00' },
+  {
+    id: '2026-09-27-redsunday', status: 'published',
+    date: '2026-09-27', day: 'SUN', homeUntil: '2026-09-27T11:05:00+09:00',
+    title: 'REDSUNDAY', place: '北堀江club vijon',
+    openStart: '', performance: '🎤 9:50–10:05 / 📸 10:15–11:05',
+    note: '予約 ¥2,000（+1D）',
+    ticket: 'https://ticketdive.com/event/REDSUNDAY_260927', badge: 'LIVE'
+  },
   { id: '2026-09-27-unreleased-osaka-2', status: 'unreleased', date: '2026-09-27', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-27T23:59:59+09:00' },
   { id: '2026-09-28-unreleased-umeda', status: 'unreleased', date: '2026-09-28', day: 'MON', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-28T23:59:59+09:00' },
 
