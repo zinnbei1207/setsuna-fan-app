@@ -128,8 +128,7 @@ const liveEvents = [
     note: '予約 ¥2,000（+1D）',
     ticket: 'https://ticketdive.com/event/REDSUNDAY_260927', badge: 'LIVE'
   },
-  { id: '2026-09-27-unreleased-osaka-2', status: 'unreleased', date: '2026-09-27', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-09-27T23:59:59+09:00' },
-  { id: '2026-09-28-unreleased-umeda', status: 'unreleased', date: '2026-09-28', day: 'MON', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-28T23:59:59+09:00' },
+    { id: '2026-09-28-unreleased-umeda', status: 'unreleased', date: '2026-09-28', day: 'MON', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-28T23:59:59+09:00' },
 
   {
     id: '2026-10-03-utan-birthday', status: 'published',
