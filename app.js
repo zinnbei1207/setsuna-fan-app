@@ -128,7 +128,14 @@ const liveEvents = [
     note: '予約 ¥2,000（+1D）',
     ticket: 'https://ticketdive.com/event/REDSUNDAY_260927', badge: 'LIVE'
   },
-    { id: '2026-09-28-unreleased-umeda', status: 'unreleased', date: '2026-09-28', day: 'MON', title: '梅田【未解禁】', place: '', homeUntil: '2026-09-28T23:59:59+09:00' },
+  {
+    id: '2026-09-28-sclive', status: 'published',
+    date: '2026-09-28', day: 'MON', homeUntil: '2026-09-28T19:05:00+09:00',
+    title: 'SCLIVE', place: '梅田 BANGBOO',
+    openStart: 'OPEN 16:30 / START 16:45', performance: '🎤 17:30–17:45 / 📸 18:05–19:05',
+    note: '優先 ¥2,500 / 一般 ¥1,000 / 女性 ¥500（+1D）',
+    ticket: 'https://ticketdive.com/event/JrdyLk1fwCVeK9', badge: 'LIVE'
+  },
 
   {
     id: '2026-10-03-utan-birthday', status: 'published',
