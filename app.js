@@ -157,7 +157,7 @@ const liveEvents = [
     date: '2026-10-04', day: 'SUN', homeUntil: '2026-10-04T18:25:00+09:00',
     title: 'IDOL CASCADE ～食欲の秋 SP～', place: 'スパワールド',
     openStart: '', performance: '🎤 17:00–17:20 / 📸 17:25–18:25',
-    note: '観覧無料', ticket: '', badge: 'LIVE'
+    note: '観覧無料 / 撮影パス ¥1,000 / 優先エリア ¥1,000（開場時から発売）', ticket: '', badge: 'LIVE'
   },
   { id: '2026-10-04-unreleased-osaka-3', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
   {
