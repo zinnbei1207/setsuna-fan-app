@@ -152,7 +152,13 @@ const liveEvents = [
     note: '観覧無料 / 撮影チケット ¥1,000（要返却・スマホ撮影無料） / 優先エリア観覧チケット ¥1,000 / 推すチケット ¥1,000（推しからのサイン入り色紙プレゼント）',
     ticket: '', badge: 'LIVE'
   },
-  { id: '2026-10-04-unreleased-osaka-2', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
+  {
+    id: '2026-10-04-idol-cascade', status: 'published',
+    date: '2026-10-04', day: 'SUN', homeUntil: '2026-10-04T18:25:00+09:00',
+    title: 'IDOL CASCADE ～食欲の秋 SP～', place: 'スパワールド',
+    openStart: '', performance: '🎤 17:00–17:20 / 📸 17:25–18:25',
+    note: '観覧無料', ticket: '', badge: 'LIVE'
+  },
   { id: '2026-10-04-unreleased-osaka-3', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
   {
     id: '2026-10-11-super-lovely-sp', status: 'published',
