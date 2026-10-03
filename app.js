@@ -159,7 +159,14 @@ const liveEvents = [
     openStart: '', performance: '🎤 17:00–17:20 / 📸 17:25–18:25',
     note: '観覧無料 / 撮影パス ¥1,000 / 優先エリア ¥1,000（開場時から発売）', ticket: '', badge: 'LIVE'
   },
-  { id: '2026-10-04-unreleased-osaka-3', status: 'unreleased', date: '2026-10-04', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-04T23:59:59+09:00' },
+  {
+    id: '2026-10-04-idol-tribe', status: 'published',
+    date: '2026-10-04', day: 'SUN', homeUntil: '2026-10-04T15:35:00+09:00',
+    title: 'IDOL TRIBE', place: 'うえほんまちハイハイタウン',
+    openStart: 'START 13:30', performance: '🎤 14:10–14:30 / 📸 14:35–15:35',
+    note: '観覧無料 / 撮影PASS ¥1,000 / 前方エリア ¥1,000 / 応援ブレスレット ¥1,000',
+    ticket: '', badge: 'LIVE'
+  },
   {
     id: '2026-10-11-super-lovely-sp', status: 'published',
     date: '2026-10-11', day: 'SUN', homeUntil: '2026-10-11T18:25:00+09:00',
