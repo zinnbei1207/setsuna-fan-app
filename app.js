@@ -186,6 +186,21 @@ const liveEvents = [
   },
   { id: '2026-10-17-unreleased-osaka-2', status: 'unreleased', date: '2026-10-17', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-17T23:59:59+09:00' },
   { id: '2026-10-18-unreleased-osaka-1', status: 'unreleased', date: '2026-10-18', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-18T23:59:59+09:00' },
+  {
+    id: '2026-10-21-idol-suki-de-nani-ga-warui', status: 'published',
+    date: '2026-10-21', day: 'WED', homeUntil: '2026-10-21T19:45:00+09:00',
+    title: 'アイドル好きで何がわるい', place: 'FANJ twice',
+    openStart: 'OPEN 17:45 / START 18:00', performance: '🎤 18:20–18:40 / 📸 18:45–19:45',
+    note: '優先 ¥2,000 / 一般 ¥1,000（+1D）', ticket: 'https://t-dv.com/IdolSuki10121', badge: 'LIVE'
+  },
+  {
+    id: '2026-11-30-vivid-sound-circuit', status: 'published',
+    date: '2026-11-30', day: 'MON', homeUntil: '2026-11-30T23:59:59+09:00',
+    title: 'VIVID SOUND CIRCUIT', place: 'FANJ twice / アメリカ村DROP / アメリカ村BEYOND / ナンバーゲート / AtlantiQs / panhead groove',
+    openStart: 'OPEN TBS / START TBS', performance: '🎤 出演時間未定 / 📸 特典会時間未定',
+    note: '優先 ¥3,000 / 一般入場無料 / タイムテーブル後日公開',
+    ticket: 'https://ticketdive.com/event/VIVIDSOU...', badge: '重要LIVE'
+  },
   { id: '2026-10-22-unreleased-osaka-1', status: 'unreleased', date: '2026-10-22', day: 'THU', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-22T23:59:59+09:00' },
   { id: '2026-10-24-unreleased-osaka-1', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
   { id: '2026-10-24-unreleased-osaka-2', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
