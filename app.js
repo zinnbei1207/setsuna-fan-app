@@ -175,7 +175,14 @@ const liveEvents = [
     note: '前方エリア ¥3,000 / 一般 ¥1,000 / 当日 +¥1,000（+1DRINK ¥600）', ticket: 'https://ticketdive.com/event/SLSP_1011', badge: 'LIVE'
   },
   { id: '2026-10-11-unreleased-osaka-1', status: 'unreleased', date: '2026-10-11', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-11T23:59:59+09:00' },
-  { id: '2026-10-16-unreleased-osaka-1', status: 'unreleased', date: '2026-10-16', day: 'FRI', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-16T23:59:59+09:00' },
+  {
+    id: '2026-10-16-ebisubashi-idol-live-vol5', status: 'published',
+    date: '2026-10-16', day: 'FRI', homeUntil: '2026-10-16T23:59:59+09:00',
+    title: 'EBISUBASHI IDOL LIVE VOL.5', place: 'TSUTAYA EBISUBASHI イベントスペース',
+    openStart: 'OPEN 18:00 / START 18:30', performance: '🎤 出演時間未定 / 📸 特典会時間未定',
+    note: 'タイムテーブル後日公開 / 永遠のセツナお目当てで1セツナポイントプレゼント',
+    ticket: 'https://cloud-pass.jp/get/bfda3c072e5a7f4c5d00580b34edb1ca41019c0df0413560796fcf187f8e8f86', badge: '重要LIVE'
+  },
   {
     id: '2026-10-17-osu-festival', status: 'published',
     date: '2026-10-17', day: 'SAT', homeUntil: '2026-10-17T23:59:59+09:00',
