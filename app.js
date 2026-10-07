@@ -168,6 +168,14 @@ const liveEvents = [
     ticket: '', badge: 'LIVE'
   },
   {
+    id: '2026-10-10-show-in-osaka-afternoon', status: 'published',
+    date: '2026-10-10', day: 'SAT', homeUntil: '2026-10-10T15:40:00+09:00',
+    title: 'SHOW IN OSAKA', place: 'Live Bar BK',
+    openStart: 'OPEN 13:00 / START 13:20', performance: '🎤 14:00–14:20 / 📸 14:40–15:40',
+    note: '予約 ¥1,500 / 当日 ¥2,500（+1D）',
+    ticket: 'https://ticketdive.com/event/SIO1010_2', badge: 'LIVE'
+  },
+  {
     id: '2026-10-10-show-in-osaka', status: 'published',
     date: '2026-10-10', day: 'SAT', homeUntil: '2026-10-10T21:40:00+09:00',
     title: 'SHOW IN OSAKA', place: 'Live Bar BK',
