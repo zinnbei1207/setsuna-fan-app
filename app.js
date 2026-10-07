@@ -168,6 +168,14 @@ const liveEvents = [
     ticket: '', badge: 'LIVE'
   },
   {
+    id: '2026-10-10-show-in-osaka', status: 'published',
+    date: '2026-10-10', day: 'SAT', homeUntil: '2026-10-10T21:40:00+09:00',
+    title: 'SHOW IN OSAKA', place: 'Live Bar BK',
+    openStart: 'OPEN 19:00 / START 19:20', performance: '🎤 19:20–19:40 / 📸 20:40–21:40',
+    note: '予約 ¥1,500 / 当日 ¥2,500（+1D）',
+    ticket: 'https://ticketdive.com/event/SIO1010_3', badge: 'LIVE'
+  },
+  {
     id: '2026-10-11-super-lovely-sp', status: 'published',
     date: '2026-10-11', day: 'SUN', homeUntil: '2026-10-11T18:25:00+09:00',
     title: '超！Lovely SP', place: 'G8 ナンバーゲート',
