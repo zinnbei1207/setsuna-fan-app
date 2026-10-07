@@ -221,7 +221,7 @@ const liveEvents = [
     date: '2026-11-30', day: 'MON', homeUntil: '2026-11-30T23:59:59+09:00',
     title: 'VIVID SOUND CIRCUIT', place: 'FANJ twice / アメリカ村DROP / アメリカ村BEYOND / ナンバーゲート / AtlantiQs / panhead groove',
     openStart: 'OPEN TBS / START TBS', performance: '🎤 出演時間未定 / 📸 特典会時間未定',
-    note: '優先 ¥3,000 / 一般入場無料 / タイムテーブル後日公開',
+    note: '優先 ¥3,000 / 一般 ¥0 / 別途1D ¥700 / 先行抽選 10/6 22:00〜10/20 22:00 / 一般販売 10/21 20:00〜11/30 20:30 / タイムテーブル後日公開',
     ticket: 'https://ticketdive.com/event/VIVIDSOUNDCIRCUIT1130', badge: '重要LIVE'
   },
   { id: '2026-10-22-unreleased-osaka-1', status: 'unreleased', date: '2026-10-22', day: 'THU', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-22T23:59:59+09:00' },
