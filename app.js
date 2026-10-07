@@ -337,6 +337,36 @@ if (homePage) {
     }
   }
 
+  const importantList = homePage.querySelector('#important-live-list');
+  if (importantList) {
+    importantList.innerHTML = '';
+    const importantEvents = upcomingLiveEvents()
+      .filter((event) => event.status === 'published' && event.badge === '重要LIVE');
+
+    importantEvents.forEach((event, index) => {
+      const card = document.createElement('article');
+      card.className = 'important-live-card';
+      if (index > 0) card.style.marginTop = '14px';
+      card.dataset.eventId = event.id;
+      card.innerHTML = `
+        <div class="important-live-top" style="padding-top:19px">
+          <div class="live-date"><strong>${shortDate(event.date)}</strong><span>${event.day}</span></div>
+          <span class="badge">重要LIVE</span>
+        </div>
+        <h3 style="margin-top:14px">${event.title}</h3>
+        ${event.place ? `<p class="live-place">📍 ${event.place}</p>` : ''}
+        ${event.openStart ? `<p class="muted live-time">${event.openStart}</p>` : ''}
+        ${event.performance ? `<p class="muted live-time">${event.performance}</p>` : ''}
+        ${event.note ? `<p class="live-note">${event.note}</p>` : ''}
+        ${event.ticket ? `<a class="important-button" href="${event.ticket}" target="_blank" rel="noopener noreferrer">チケットを購入する →</a>` : ''}
+      `;
+      importantList.appendChild(card);
+    });
+
+    const importantSection = importantList.closest('.important-block');
+    if (importantSection) importantSection.style.display = importantEvents.length ? '' : 'none';
+  }
+
   if (!homePage.querySelector('.about-fan-app')) {
     const about = document.createElement('section');
     about.className = 'section-block about-fan-app';
