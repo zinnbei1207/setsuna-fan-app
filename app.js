@@ -192,6 +192,14 @@ const liveEvents = [
   },
   { id: '2026-10-11-unreleased-osaka-1', status: 'unreleased', date: '2026-10-11', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-11T23:59:59+09:00' },
   {
+    id: '2026-10-12-idol-tribe-spaworld', status: 'published',
+    date: '2026-10-12', day: 'MON', homeUntil: '2026-10-12T15:55:00+09:00',
+    title: 'IDOL TRIBE', place: 'スパワールド',
+    openStart: 'START 13:30', performance: '🎤 14:30–14:50 / 📸 14:55–15:55（並行物販A）',
+    note: '観覧無料 / 撮影PASS ¥1,000 / 前方エリア ¥1,000 / 応援ブレスレット ¥1,000 / ブロックごとに前方エリア・撮影PASSが異なります',
+    ticket: '', badge: 'LIVE'
+  },
+  {
     id: '2026-10-16-ebisubashi-idol-live-vol5', status: 'published',
     date: '2026-10-16', day: 'FRI', homeUntil: '2026-10-16T23:59:59+09:00',
     title: 'EBISUBASHI IDOL LIVE VOL.5', place: 'TSUTAYA EBISUBASHI イベントスペース',
