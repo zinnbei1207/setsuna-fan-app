@@ -168,6 +168,14 @@ const liveEvents = [
     ticket: '', badge: 'LIVE'
   },
   {
+    id: '2026-10-09-rrr', status: 'published',
+    date: '2026-10-09', day: 'FRI', homeUntil: '2026-10-09T20:50:00+09:00',
+    title: 'RRR', place: 'FANJ twice',
+    openStart: 'OPEN 18:40 / START 19:00', performance: '🎤 19:20–19:40 / 📸 19:50–20:50',
+    note: '優先 ¥2,000 / 一般 ¥1,000（+1D）',
+    ticket: 'https://ticketdive.com/event/RRR261009', badge: 'LIVE'
+  },
+  {
     id: '2026-10-10-show-in-osaka-afternoon', status: 'published',
     date: '2026-10-10', day: 'SAT', homeUntil: '2026-10-10T15:40:00+09:00',
     title: 'SHOW IN OSAKA', place: 'Live Bar BK',
