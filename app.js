@@ -192,13 +192,21 @@ const liveEvents = [
     ticket: 'https://ticketdive.com/event/SIO1010_3', badge: 'LIVE'
   },
   {
+    id: '2026-10-11-otohare-fes-80', status: 'published',
+    date: '2026-10-11', day: 'SUN', homeUntil: '2026-10-11T13:50:00+09:00',
+    title: 'オトハレFes! #80', place: '湊町リバープレイス',
+    openStart: 'START 12:50', performance: '🎤 12:35–12:50 / 📸 12:50–13:50（並行C）',
+    note: '観覧無料 / 優先エリア ¥1,000（2〜8段目） / カメラ撮影パス ¥1,000（3段目以降・三脚も3段目以降） / スマートフォン撮影無料 / 応援グッズ（オンラインブロマイド）¥1,000 / クラップ禁止',
+    ticket: 'https://tiget.net/events/529529', badge: 'LIVE'
+  },
+  {
     id: '2026-10-11-super-lovely-sp', status: 'published',
     date: '2026-10-11', day: 'SUN', homeUntil: '2026-10-11T18:25:00+09:00',
     title: '超！Lovely SP', place: 'G8 ナンバーゲート',
     openStart: '', performance: '🎤 16:45–17:00 / 📸 17:25–18:25',
     note: '前方エリア ¥3,000 / 一般 ¥1,000 / 当日 +¥1,000（+1DRINK ¥600）', ticket: 'https://ticketdive.com/event/SLSP_1011', badge: 'LIVE'
   },
-  { id: '2026-10-11-unreleased-osaka-1', status: 'unreleased', date: '2026-10-11', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-11T23:59:59+09:00' },
+
   {
     id: '2026-10-12-idol-tribe-spaworld', status: 'published',
     date: '2026-10-12', day: 'MON', homeUntil: '2026-10-12T15:55:00+09:00',
