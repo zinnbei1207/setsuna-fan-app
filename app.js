@@ -232,7 +232,13 @@ const liveEvents = [
     ticket: '', badge: 'LIVE'
   },
   { id: '2026-10-17-unreleased-osaka-2', status: 'unreleased', date: '2026-10-17', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-17T23:59:59+09:00' },
-  { id: '2026-10-18-unreleased-osaka-1', status: 'unreleased', date: '2026-10-18', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-18T23:59:59+09:00' },
+  {
+    id: '2026-10-18-shippu-street-festa', status: 'published',
+    date: '2026-10-18', day: 'SUN', homeUntil: '2026-10-18T23:59:59+09:00',
+    title: '疾風 特別編 野外フリーライブ feat. STREET FESTA', place: '会場未確認',
+    openStart: 'OPEN / START 未確認', performance: '🎤 14:25–14:45 / 📸 特典会時間未発表',
+    note: '料金・撮影条件は未確認。公式告知をご確認ください。', ticket: '', badge: 'LIVE'
+  },
   {
     id: '2026-10-21-idol-suki-de-nani-ga-warui', status: 'published',
     date: '2026-10-21', day: 'WED', homeUntil: '2026-10-21T19:45:00+09:00',
