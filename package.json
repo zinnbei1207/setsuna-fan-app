@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "sync-calendar": "node scripts/sync-google-calendar.mjs"
+    "sync-calendar": "node scripts/sync-google-calendar.mjs",
+    "validate-lives": "node scripts/validate-lives.mjs"
   },
   "dependencies": {
     "googleapis": "^160.0.0"
