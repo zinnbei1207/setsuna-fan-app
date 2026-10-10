@@ -7,7 +7,7 @@ if (begin < 0) throw Error('liveEvents not found');
 const after = source.slice(begin);
 const close = after.indexOf('\n];');
 if (close < 0) throw Error('liveEvents closing marker not found');
-const events = after.slice(0, close).split(/\n  \{(?=\s*\n?\s*id:)/).slice(1);
+const events = after.slice(0, close).split(/\n  \{(?=\s*\n?\s*id:)/).map((part,i) => i === 0 ? part.slice(part.indexOf('  {') + 3) : part).filter(part => /\bid:\s*'/.test(part));
 const field = (s, name) => s.match(new RegExp('\\b' + name + ":\\s*'([^']*)'"))?.[1] ?? '';
 const time = (s, label) => {
   const match = s.match(new RegExp('(?:' + label + ')\\s*(\\d{1,2}):(\\d{2})', 'i'));
