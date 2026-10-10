@@ -195,7 +195,7 @@ const liveEvents = [
     id: '2026-10-11-otohare-fes-80', status: 'published',
     date: '2026-10-11', day: 'SUN', homeUntil: '2026-10-11T13:50:00+09:00',
     title: 'オトハレFes! #80', place: '湊町リバープレイス',
-    openStart: 'START 12:50', performance: '🎤 12:35–12:50 / 📸 12:50–13:50（並行C）',
+    openStart: 'OPEN 11:50 / START 12:05', performance: '🎤 12:35–12:50 / 📸 12:50–13:50（並行C）',
     note: '観覧無料 / 優先エリア ¥1,000（2〜8段目） / カメラ撮影パス ¥1,000（3段目以降・三脚も3段目以降） / スマートフォン撮影無料 / 応援グッズ（オンラインブロマイド）¥1,000 / クラップ禁止',
     ticket: 'https://tiget.net/events/529529', badge: 'LIVE'
   },
