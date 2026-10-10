@@ -217,10 +217,10 @@ const liveEvents = [
   },
   {
     id: '2026-10-16-ebisubashi-idol-live-vol5', status: 'published',
-    date: '2026-10-16', day: 'FRI', homeUntil: '2026-10-16T23:59:59+09:00',
+    date: '2026-10-16', day: 'FRI', homeUntil: '2026-10-16T20:10:00+09:00',
     title: 'EBISUBASHI IDOL LIVE VOL.5', place: 'TSUTAYA EBISUBASHI イベントスペース',
-    openStart: 'OPEN 18:00 / START 18:30', performance: '🎤 出演時間未定 / 📸 特典会時間未定',
-    note: '優先エリア ¥2,500（当日 ¥3,000） / 一般エリア ¥1,000（当日 ¥1,500） / 撮影チケット前方 ¥4,000（当日 ¥4,500） / 撮影チケット後方 ¥2,000（当日 ¥2,500） / 税込 / タイムテーブル後日公開 / 永遠のセツナお目当てで1セツナポイントプレゼント',
+    openStart: 'OPEN 18:00 / START 18:30', performance: '🎤 18:30–18:50 / 📸 19:10–20:10（5F エスカレーター横）',
+    note: '優先エリア ¥2,500（当日 ¥3,000） / 一般エリア ¥1,000（当日 ¥1,500） / 撮影チケット前方 ¥4,000（当日 ¥4,500） / 撮影チケット後方 ¥2,000（当日 ¥2,500） / 税込 / 永遠のセツナお目当てで1セツナポイントプレゼント',
     ticket: 'https://cloud-pass.jp/get/bfda3c072e5a7f4c5d00580b34edb1ca41019c0df0413560796fcf187f8e8f86', badge: '重要LIVE'
   },
   {
