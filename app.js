@@ -220,7 +220,7 @@ const liveEvents = [
     date: '2026-10-13', day: 'TUE', homeUntil: '2026-10-13T20:30:00+09:00',
     title: 'DaDaDa', place: 'アメリカ村DROP',
     openStart: 'OPEN 18:20 / START 18:40', performance: '🎤 19:00–19:20 / 📸 特典会時間は告知間で相違のため要確認',
-    note: '優先 ¥2,000 / 一般 ¥1,000（+1D） / 特典会は最新の公式案内をご確認ください',
+    note: '優先 ¥2,000 / 一般 ¥1,000（+1D） / 🎁 お目当て特典：囲み写メ / 特典会は最新の公式案内をご確認ください',
     ticket: 'https://ticketdive.com/event/DaDaDa1013', badge: 'LIVE'
   },
   { id: '2026-10-14-unreleased-osaka-1', status: 'unreleased', date: '2026-10-14', day: 'WED', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-14T23:59:59+09:00' },
