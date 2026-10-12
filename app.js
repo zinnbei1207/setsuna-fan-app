@@ -217,10 +217,10 @@ const liveEvents = [
   },
   {
     id: '2026-10-13-dadada', status: 'published',
-    date: '2026-10-13', day: 'TUE', homeUntil: '2026-10-13T20:30:00+09:00',
+    date: '2026-10-13', day: 'TUE', homeUntil: '2026-10-13T19:20:00+09:00',
     title: 'DaDaDa', place: 'アメリカ村DROP',
-    openStart: 'OPEN 18:20 / START 18:40', performance: '🎤 19:00–19:20 / 📸 特典会時間は告知間で相違のため要確認',
-    note: '優先 ¥2,000 / 一般 ¥1,000（+1D） / 🎁 お目当て特典：囲み写メ / 特典会は最新の公式案内をご確認ください',
+    openStart: 'OPEN 18:20 / START 18:40', performance: '📸 18:20–18:50（ライブ前特典会） / 🎤 19:00–19:20',
+    note: '優先 ¥2,000 / 一般 ¥1,000（+1D） / 🎁 お目当て特典：囲み写メ',
     ticket: 'https://ticketdive.com/event/DaDaDa1013', badge: 'LIVE'
   },
   {
