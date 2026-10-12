@@ -215,6 +215,7 @@ const liveEvents = [
     note: '観覧無料 / 撮影PASS ¥1,000 / 前方エリア ¥1,000 / 応援ブレスレット ¥1,000 / ブロックごとに前方エリア・撮影PASSが異なります',
     ticket: '', badge: 'LIVE'
   },
+  { id: '2026-10-14-unreleased-osaka-1', status: 'unreleased', date: '2026-10-14', day: 'WED', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-14T23:59:59+09:00' },
   {
     id: '2026-10-16-ebisubashi-idol-live-vol5', status: 'published',
     date: '2026-10-16', day: 'FRI', homeUntil: '2026-10-16T20:10:00+09:00',
@@ -239,6 +240,7 @@ const liveEvents = [
     openStart: 'OPEN / START 未確認', performance: '🎤 14:25–14:45 / 📸 特典会時間未発表',
     note: '料金・撮影条件は未確認。公式告知をご確認ください。', ticket: '', badge: 'LIVE'
   },
+  { id: '2026-10-18-unreleased-osaka-2', status: 'unreleased', date: '2026-10-18', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-18T23:59:59+09:00' },
   {
     id: '2026-10-21-idol-suki-de-nani-ga-warui', status: 'published',
     date: '2026-10-21', day: 'WED', homeUntil: '2026-10-21T19:45:00+09:00',
@@ -257,8 +259,12 @@ const liveEvents = [
   { id: '2026-10-22-unreleased-osaka-1', status: 'unreleased', date: '2026-10-22', day: 'THU', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-22T23:59:59+09:00' },
   { id: '2026-10-24-unreleased-osaka-1', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
   { id: '2026-10-24-unreleased-osaka-2', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
+  { id: '2026-10-25-unreleased-osaka-2', status: 'unreleased', date: '2026-10-25', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-25T23:59:59+09:00' },
   { id: '2026-10-25-unreleased-osaka-1', status: 'unreleased', date: '2026-10-25', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-25T23:59:59+09:00' },
-  { id: '2026-10-31-unreleased-osaka-1', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' }
+  { id: '2026-10-26-unreleased-osaka-1', status: 'unreleased', date: '2026-10-26', day: 'MON', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-26T23:59:59+09:00' },
+  { id: '2026-10-31-unreleased-osaka-2', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
+  { id: '2026-10-31-unreleased-osaka-1', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
+  { id: '2026-11-01-unreleased-osaka-1', status: 'unreleased', date: '2026-11-01', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-11-01T23:59:59+09:00' }
 ];
 
 const eventSortTime = (event) => {
