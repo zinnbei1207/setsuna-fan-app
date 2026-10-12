@@ -215,6 +215,14 @@ const liveEvents = [
     note: '観覧無料 / 撮影PASS ¥1,000 / 前方エリア ¥1,000 / 応援ブレスレット ¥1,000 / ブロックごとに前方エリア・撮影PASSが異なります',
     ticket: '', badge: 'LIVE'
   },
+  {
+    id: '2026-10-13-dadada', status: 'published',
+    date: '2026-10-13', day: 'TUE', homeUntil: '2026-10-13T20:30:00+09:00',
+    title: 'DaDaDa', place: 'アメリカ村DROP',
+    openStart: 'OPEN 18:20 / START 18:40', performance: '🎤 19:00–19:20 / 📸 特典会時間は告知間で相違のため要確認',
+    note: '優先 ¥2,000 / 一般 ¥1,000（+1D） / 特典会は最新の公式案内をご確認ください',
+    ticket: 'https://ticketdive.com/event/DaDaDa1013', badge: 'LIVE'
+  },
   { id: '2026-10-14-unreleased-osaka-1', status: 'unreleased', date: '2026-10-14', day: 'WED', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-14T23:59:59+09:00' },
   {
     id: '2026-10-16-ebisubashi-idol-live-vol5', status: 'published',
