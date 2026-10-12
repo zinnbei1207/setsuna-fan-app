@@ -32,7 +32,7 @@ for (const block of events) {
   if(start!==null) for(const [a] of stages) if(a<start) errors.push(id+': performance earlier than event START');
   if(until && (stages.length || meets.length)) {
     const last=Math.max(...[...stages,...meets].map(pair=>pair[1]));
-    const u=hhmm(until).at(-1);
+    const u=time(until,'T');
     if(u!==undefined && u<last) errors.push(id+': homeUntil earlier than end of performance/meet');
   }
 }
