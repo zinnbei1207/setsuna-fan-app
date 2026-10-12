@@ -223,7 +223,14 @@ const liveEvents = [
     note: '優先 ¥2,000 / 一般 ¥1,000（+1D） / 🎁 お目当て特典：囲み写メ / 特典会は最新の公式案内をご確認ください',
     ticket: 'https://ticketdive.com/event/DaDaDa1013', badge: 'LIVE'
   },
-  { id: '2026-10-14-unreleased-osaka-1', status: 'unreleased', date: '2026-10-14', day: 'WED', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-14T23:59:59+09:00' },
+  {
+    id: '2026-10-14-parallel-world', status: 'published',
+    date: '2026-10-14', day: 'WED', homeUntil: '2026-10-14T22:15:00+09:00',
+    title: '絆（キズナ）presents Parallel World', place: 'Banana Hall',
+    openStart: 'OPEN 18:40 / START 19:00', performance: '🎤 19:25–19:50 / 📸 21:15–22:15',
+    note: '前方 ¥3,000 / 一般 ¥0（+1D ¥600） / 🎁 お目当て特典：20秒写メ撮り放題',
+    ticket: 'https://livepocket.jp/e/sxz3x', badge: 'LIVE'
+  },
   {
     id: '2026-10-16-ebisubashi-idol-live-vol5', status: 'published',
     date: '2026-10-16', day: 'FRI', homeUntil: '2026-10-16T20:10:00+09:00',
