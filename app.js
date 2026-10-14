@@ -289,7 +289,7 @@ const liveEvents = [
     openStart: 'OPEN 21:30 / START 22:00', performance: '',
     note: '前方 ¥2,500 / 一般 ¥1,500 / 楽曲シャッフル企画・超重大発表あり / チケット販売 10/15 20:00〜12/30 23:59',
     ticket: 'https://tiget.net/events/530691', badge: '重要LIVE',
-    image: '' // 公式告知ポスターの画像URLが確認でき次第設定
+    image: 'cokoreulfesta.jpeg'
   },
 ];
 
