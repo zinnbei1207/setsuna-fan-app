@@ -280,7 +280,17 @@ const liveEvents = [
   { id: '2026-10-26-unreleased-osaka-1', status: 'unreleased', date: '2026-10-26', day: 'MON', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-26T23:59:59+09:00' },
   { id: '2026-10-31-unreleased-osaka-2', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
   { id: '2026-10-31-unreleased-osaka-1', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
-  { id: '2026-11-01-unreleased-osaka-1', status: 'unreleased', date: '2026-11-01', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-11-01T23:59:59+09:00' }
+  { id: '2026-11-01-unreleased-osaka-1', status: 'unreleased', date: '2026-11-01', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-11-01T23:59:59+09:00' },
+
+  {
+    id: '2026-12-31-colorful-festa-countdown', status: 'published',
+    date: '2026-12-31', day: 'THU', homeUntil: '2026-12-31T23:59:59+09:00',
+    title: 'COLORFUL FESTA COUNTDOWN 26→27', place: '心斎橋KuRaGe',
+    openStart: '', performance: '',
+    note: '前方 ¥2,500 / 一般 ¥1,500 / 楽曲シャッフル企画・超重大発表あり / チケット販売 10/15 20:00〜12/30 23:59',
+    ticket: 'https://tiget.net/events/530691', badge: '重要LIVE',
+    image: '' // 公式告知ポスターの画像URLが確認でき次第設定
+  },
 ];
 
 const eventSortTime = (event) => {
@@ -307,6 +317,7 @@ const eventLines = (event) => `
   <div class="live-date"><strong>${shortDate(event.date)}</strong><span>${event.day}</span></div>
   <span class="badge">${event.badge || 'LIVE'}</span>
   <h3>${event.title}</h3>
+  ${event.image ? `<img src="${event.image}" alt="${event.title} 告知画像" loading="lazy" style="display:block;width:100%;height:auto;border-radius:12px;margin:12px 0;object-fit:contain">` : ''}
   ${event.place ? `<p class="live-place">📍 ${event.place}</p>` : ''}
   ${event.openStart ? `<p class="muted live-time">${event.openStart}</p>` : ''}
   ${event.performance ? `<p class="muted live-time">${event.performance}</p>` : ''}
@@ -406,6 +417,7 @@ if (homePage) {
           <span class="badge">重要LIVE</span>
         </div>
         <h3 style="margin-top:14px">${event.title}</h3>
+        ${event.image ? `<img src="${event.image}" alt="${event.title} 告知画像" loading="lazy" style="display:block;width:100%;height:auto;border-radius:12px;margin:12px 0;object-fit:contain">` : ''}
         ${event.place ? `<p class="live-place">📍 ${event.place}</p>` : ''}
         ${event.openStart ? `<p class="muted live-time">${event.openStart}</p>` : ''}
         ${event.performance ? `<p class="muted live-time">${event.performance}</p>` : ''}
