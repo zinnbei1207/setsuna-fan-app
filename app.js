@@ -247,7 +247,22 @@ const liveEvents = [
     note: '観覧無料 / 撮影チケット ¥1,000 / 優先エリア観覧チケット ¥1,000 / 推すチケット ¥1,000',
     ticket: '', badge: 'LIVE'
   },
-  { id: '2026-10-17-unreleased-osaka-2', status: 'unreleased', date: '2026-10-17', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-17T23:59:59+09:00' },
+  {
+    id: '2026-10-17-idol-tribe-uehonmachi', status: 'published',
+    date: '2026-10-17', day: 'SAT', homeUntil: '2026-10-17T17:05:00+09:00',
+    title: 'IDOL TRIBE', place: 'うえほんまちハイハイタウン',
+    openStart: 'START 14:20', performance: '🎤 15:40–16:00 / 📸 16:05–17:05',
+    note: '観覧無料 / 撮影PASS ¥1,000 / 前方PASS ¥1,000 / ※PASSはブロック毎に異なります',
+    ticket: '', badge: 'LIVE'
+  },
+  {
+    id: '2026-10-17-dinner-and-live', status: 'published',
+    date: '2026-10-17', day: 'SAT', homeUntil: '2026-10-17T22:30:00+09:00',
+    title: 'DINNER and LIVE!!', place: 'Live Bar BK',
+    openStart: '', performance: '🎤 21:05–21:25 / 📸 21:30–22:30',
+    note: '予約 ¥3,000 / 当日 ¥4,000（カレー1皿・1D込み）',
+    ticket: 'https://ticketdive.com/event/DINNER1017', badge: 'LIVE'
+  },
   {
     id: '2026-10-18-shippu-street-festa', status: 'published',
     date: '2026-10-18', day: 'SUN', homeUntil: '2026-10-18T18:30:00+09:00',
