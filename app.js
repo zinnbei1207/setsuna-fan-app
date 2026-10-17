@@ -313,7 +313,6 @@ const liveEvents = [
     note: '同一イベントで2回出演 / 優先 ¥2,500 / 一般 ¥2,000（別途1D）',
     ticket: 'https://ticketdive.com/event/OSAKAHONEYWAVE1025', badge: 'LIVE'
   },
-  { id: '2026-10-25-unreleased-osaka-1', status: 'unreleased', date: '2026-10-25', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-25T23:59:59+09:00' },
   { id: '2026-10-26-unreleased-osaka-1', status: 'unreleased', date: '2026-10-26', day: 'MON', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-26T23:59:59+09:00' },
   { id: '2026-10-31-unreleased-osaka-2', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
   { id: '2026-10-31-unreleased-osaka-1', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
