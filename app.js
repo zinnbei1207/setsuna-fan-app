@@ -271,7 +271,14 @@ const liveEvents = [
     note: '観覧無料 / 撮影パス 各部 ¥1,000 / 優先エリア 各部 ¥1,000 / 撮影パスなしのスマホ・カメラ撮影は禁止',
     ticket: '', badge: 'LIVE'
   },
-  { id: '2026-10-18-unreleased-osaka-2', status: 'unreleased', date: '2026-10-18', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-18T23:59:59+09:00' },
+  {
+    id: '2026-10-18-furumax-vol1', status: 'published',
+    date: '2026-10-18', day: 'SUN', homeUntil: '2026-10-18T12:45:00+09:00',
+    title: 'ふるまっくす vol.1', place: '北堀江club vijon',
+    openStart: '', performance: '🎤 11:20–11:40 / 📸 11:45–12:45',
+    note: '優先 ¥2,000 / 一般 ¥1,000（各+1D）',
+    ticket: 'https://tiget.net/events/531454', badge: 'LIVE'
+  },
   {
     id: '2026-10-21-idol-suki-de-nani-ga-warui', status: 'published',
     date: '2026-10-21', day: 'WED', homeUntil: '2026-10-21T19:45:00+09:00',
