@@ -304,7 +304,15 @@ const liveEvents = [
   },
   { id: '2026-10-24-unreleased-osaka-1', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
   { id: '2026-10-24-unreleased-osaka-2', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
-  { id: '2026-10-25-unreleased-osaka-2', status: 'unreleased', date: '2026-10-25', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-25T23:59:59+09:00' },
+  {
+    id: '2026-10-25-osaka-honey-wave', status: 'published',
+    date: '2026-10-25', day: 'SUN', homeUntil: '2026-10-25T19:40:00+09:00',
+    title: 'OSAKA HONEY WAVE', place: 'PANHEAD GROOVE',
+    openStart: 'OPEN 10:00 / START 10:20',
+    performance: '① 🎤 11:05–11:20 / 📸 11:30–12:30　② 🎤 18:10–18:30 / 📸 18:40–19:40',
+    note: '同一イベントで2回出演 / 優先 ¥2,500 / 一般 ¥2,000（別途1D）',
+    ticket: 'https://ticketdive.com/event/OSAKAHONEYWAVE1025', badge: 'LIVE'
+  },
   { id: '2026-10-25-unreleased-osaka-1', status: 'unreleased', date: '2026-10-25', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-25T23:59:59+09:00' },
   { id: '2026-10-26-unreleased-osaka-1', status: 'unreleased', date: '2026-10-26', day: 'MON', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-26T23:59:59+09:00' },
   { id: '2026-10-31-unreleased-osaka-2', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
