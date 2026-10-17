@@ -294,7 +294,14 @@ const liveEvents = [
     note: '優先 ¥3,000 / 一般 ¥0 / 別途1D ¥700 / 先行抽選 10/6 22:00〜10/20 22:00 / 一般販売 10/21 20:00〜11/30 20:30 / タイムテーブル後日公開',
     ticket: 'https://ticketdive.com/event/VIVIDSOUNDCIRCUIT1130', badge: '重要LIVE'
   },
-  { id: '2026-10-22-unreleased-osaka-1', status: 'unreleased', date: '2026-10-22', day: 'THU', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-22T23:59:59+09:00' },
+  {
+    id: '2026-10-22-idol-tribe', status: 'published',
+    date: '2026-10-22', day: 'THU', homeUntil: '2026-10-22T20:25:00+09:00',
+    title: 'IDOL TRIBE', place: '心斎橋VARON',
+    openStart: 'OPEN 17:00 / START 17:20', performance: '🎤 19:00–19:20 / 📸 19:25–20:25（並行物販C）',
+    note: '一般 前売 ¥1,000 / 前方 前売 ¥2,000 / 当日各+¥500 / 別途2D / 公式Xフォロー＆告知RPで各チケット¥500キャッシュバック / 特別衣装day・特別衣装日限定20秒写メ取り放題 ¥2,000',
+    ticket: 'https://tiget.net/events/529761', badge: 'LIVE'
+  },
   { id: '2026-10-24-unreleased-osaka-1', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
   { id: '2026-10-24-unreleased-osaka-2', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
   { id: '2026-10-25-unreleased-osaka-2', status: 'unreleased', date: '2026-10-25', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-25T23:59:59+09:00' },
