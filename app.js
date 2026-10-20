@@ -287,6 +287,14 @@ const liveEvents = [
     note: '優先 ¥2,000 / 一般 ¥1,000（+1D）', ticket: 'https://t-dv.com/IdolSuki10121', badge: 'LIVE'
   },
   {
+    id: '2026-10-21-dadada', status: 'published',
+    date: '2026-10-21', day: 'WED', homeUntil: '2026-10-21T21:50:00+09:00',
+    title: 'DaDaDa', place: 'OSAKA MUSE',
+    openStart: 'OPEN 17:45 / START 18:00', performance: '🎤 20:00–20:20 / 📸 20:50–21:50',
+    note: '優先 ¥2,000 / 一般 ¥1,000',
+    ticket: 'https://ticketdive.com/event/DaDaDa1021', badge: 'LIVE'
+  },
+  {
     id: '2026-11-30-vivid-sound-circuit', status: 'published',
     date: '2026-11-30', day: 'MON', homeUntil: '2026-11-30T23:59:59+09:00',
     title: 'VIVID SOUND CIRCUIT', place: 'FANJ twice / アメリカ村DROP / アメリカ村BEYOND / ナンバーゲート / AtlantiQs / panhead groove',
