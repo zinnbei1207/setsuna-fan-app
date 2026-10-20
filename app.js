@@ -338,10 +338,11 @@ const liveEvents = [
 ];
 
 const eventSortTime = (event) => {
+  // 同日公演はイベント開演時刻ではなく、セツナの出演開始時刻を優先する。
+  const liveTime = event.performance?.match(/🎤\s*(\d{1,2}:\d{2})/)?.[1];
+  if (liveTime) return liveTime.padStart(5, '0');
   const start = event.openStart?.match(/START\s*(\d{1,2}:\d{2})/i)?.[1];
-  if (start) return start.padStart(5, '0');
-  const performance = event.performance?.match(/(\d{1,2}:\d{2})/)?.[1];
-  return performance ? performance.padStart(5, '0') : '99:99';
+  return start ? start.padStart(5, '0') : '99:99';
 };
 liveEvents.sort((a, b) => a.date.localeCompare(b.date) || eventSortTime(a).localeCompare(eventSortTime(b)) || a.id.localeCompare(b.id));
 
