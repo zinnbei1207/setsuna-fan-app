@@ -331,7 +331,7 @@ const liveEvents = [
     date: '2026-12-31', day: 'THU', homeUntil: '2027-01-01T23:59:59+09:00',
     title: 'COLORFUL FESTA COUNTDOWN 26→27', place: '心斎橋KuRaGe',
     openStart: 'OPEN 21:30 / START 22:00', performance: '',
-    note: '前方 ¥2,500 / 一般 ¥1,500 / 楽曲シャッフル企画・超重大発表あり / チケット販売 10/15 20:00〜12/30 23:59',
+    note: '前方 ¥2,500 / 一般 ¥1,500 / 楽曲シャッフル企画・超重大発表あり / チケット販売日程は再案内待ち',
     ticket: 'https://tiget.net/events/530691', badge: '重要LIVE',
     image: 'cokoreulfesta.jpeg'
   },
