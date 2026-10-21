@@ -310,7 +310,15 @@ const liveEvents = [
     note: '一般 前売 ¥1,000 / 前方 前売 ¥2,000 / 当日各+¥500 / 別途2D / 公式Xフォロー＆告知RPで各チケット¥500キャッシュバック / 特別衣装day・特別衣装日限定20秒写メ取り放題 ¥2,000',
     ticket: 'https://tiget.net/events/529761', badge: 'LIVE'
   },
-  { id: '2026-10-24-unreleased-osaka-1', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
+  {
+    id: '2026-10-24-yoru-no-shinsekai', status: 'published',
+    date: '2026-10-24', day: 'SAT', homeUntil: '2026-10-24T21:20:00+09:00',
+    title: '夜の新世界でライブやりまんねん！', place: 'TMDホール',
+    openStart: 'OPEN 16:00 / START 16:30',
+    performance: '🎤 19:35–19:55 / 📸 20:20–21:20（終演後C）',
+    note: '前方 ¥1,500 / 一般 ¥500 / 当日各+¥500 / 各1D別途 / 🎁 来場者全員におつまみプレゼント',
+    ticket: 'https://ticketdive.com/event/tmd1024_2', badge: 'LIVE'
+  },
   { id: '2026-10-24-unreleased-osaka-2', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
   {
     id: '2026-10-25-osaka-honey-wave', status: 'published',
