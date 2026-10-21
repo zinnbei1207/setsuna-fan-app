@@ -340,7 +340,15 @@ const liveEvents = [
   { id: '2026-10-26-unreleased-osaka-1', status: 'unreleased', date: '2026-10-26', day: 'MON', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-26T23:59:59+09:00' },
   { id: '2026-10-31-unreleased-osaka-2', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
   { id: '2026-10-31-unreleased-osaka-1', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
-  { id: '2026-11-01-unreleased-osaka-1', status: 'unreleased', date: '2026-11-01', day: 'SUN', title: '大阪【未解禁】', place: '', homeUntil: '2026-11-01T23:59:59+09:00' },
+  {
+    id: '2026-11-01-aidolce-cooking-battle', status: 'published',
+    date: '2026-11-01', day: 'SUN', homeUntil: '2026-11-01T15:30:00+09:00',
+    title: 'aiDolce料理対決 vol.99 ～永遠のセツナ＆MellBell～', place: 'aiDolce（神戸三宮）',
+    openStart: 'お料理 12:30–14:00 / 試食 14:00–14:30',
+    performance: '🍳 お料理 12:30–14:00 / 🍽️ 試食 14:00–14:30 / 📸 特典会 14:30–15:30（私服＆エプロン姿）',
+    note: '前売 ¥4,500 / 当日 ¥5,000 / ワンプレートのお食事・ワンドリンク代込み',
+    ticket: 'https://ticketdive.com/event/1101cook', badge: 'イベント'
+  },
 
   {
     id: '2026-12-31-colorful-festa-countdown', status: 'published',
