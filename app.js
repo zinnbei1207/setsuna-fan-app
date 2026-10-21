@@ -319,7 +319,15 @@ const liveEvents = [
     note: '前方 ¥1,500 / 一般 ¥500 / 当日各+¥500 / 各1D別途 / 🎁 来場者全員におつまみプレゼント',
     ticket: 'https://ticketdive.com/event/tmd1024_2', badge: 'LIVE'
   },
-  { id: '2026-10-24-unreleased-osaka-2', status: 'unreleased', date: '2026-10-24', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-24T23:59:59+09:00' },
+  {
+    id: '2026-10-24-idol-tribe-donki', status: 'published',
+    date: '2026-10-24', day: 'SAT', homeUntil: '2026-10-24T17:55:00+09:00',
+    title: 'IDOL TRIBE', place: 'ドン・キホーテ梅田本店',
+    openStart: 'START 13:00',
+    performance: '🎤 16:20–16:35 / 📸 16:55–17:55',
+    note: '観覧無料 / 撮影PASS ¥1,000',
+    ticket: '', badge: 'LIVE'
+  },
   {
     id: '2026-10-25-osaka-honey-wave', status: 'published',
     date: '2026-10-25', day: 'SUN', homeUntil: '2026-10-25T19:40:00+09:00',
