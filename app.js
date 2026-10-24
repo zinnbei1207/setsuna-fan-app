@@ -334,7 +334,7 @@ const liveEvents = [
     title: 'IDOL TRIBE', place: 'スパワールド',
     openStart: '',
     performance: '🎤 15:00–15:20（Aブロック） / 📸 15:25–16:25（並行物販A）',
-    note: '観覧無料 / 撮影PASS ¥1,000 / 前方エリア ¥1,000 / 応援ブレスレット ¥1,000（ブロックごとに前方エリア・撮影PASSが必要）',
+    note: '観覧無料 / 撮影PASS ¥1,000 / 前方エリア ¥1,000（ブロックごとに必要） / 応援ブレスレット ¥1,000',
     ticket: '', badge: 'LIVE'
   },
   {
