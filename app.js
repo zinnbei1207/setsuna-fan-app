@@ -355,7 +355,14 @@ const liveEvents = [
     note: '優先 ¥2,000 / 一般 ¥1,000（別途1D） / 撮影は各出演者へ確認 / 三脚・足場・自撮り棒を用いた撮影は禁止',
     ticket: 'https://ticketdive.com/event/BeingAnIdolFan261026', badge: 'LIVE'
   },
-  { id: '2026-10-31-unreleased-osaka-2', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
+  {
+    id: '2026-10-31-idol-tribe-uehonmachi', status: 'published',
+    date: '2026-10-31', day: 'SAT', homeUntil: '2026-10-31T14:45:00+09:00',
+    title: 'IDOL TRIBE', place: 'うえほんまちハイハイタウン',
+    openStart: '', performance: '🎤 13:20–13:40 / 📸 13:45–14:45（並行物販A）',
+    note: '観覧無料 / 撮影PASS ¥1,000 / 前方エリア ¥1,000 / 応援ブレスレット ¥1,000 / ブロックごとに前方エリア・撮影PASSが必要',
+    ticket: '', badge: 'LIVE'
+  },
   {
     id: '2026-10-31-halloween-osaka-idol', status: 'published',
     date: '2026-10-31', day: 'SAT', homeUntil: '2026-10-31T17:15:00+09:00',
