@@ -356,7 +356,15 @@ const liveEvents = [
     ticket: 'https://ticketdive.com/event/BeingAnIdolFan261026', badge: 'LIVE'
   },
   { id: '2026-10-31-unreleased-osaka-2', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
-  { id: '2026-10-31-unreleased-osaka-1', status: 'unreleased', date: '2026-10-31', day: 'SAT', title: '大阪【未解禁】', place: '', homeUntil: '2026-10-31T23:59:59+09:00' },
+  {
+    id: '2026-10-31-halloween-osaka-idol', status: 'published',
+    date: '2026-10-31', day: 'SAT', homeUntil: '2026-10-31T17:15:00+09:00',
+    title: 'HALLOWEEN OSAKA IDOL', place: 'ナンバーゲート',
+    openStart: 'OPEN 08:20 / START 08:40',
+    performance: '🎤 08:40–09:00 / 📸 09:15–10:15 / 🎤 15:40–16:00 / 📸 16:15–17:15',
+    note: '優先 ¥2,500 / 一般 ¥1,500（別途1D） / ハロウィン仮装day・特別衣装 / 1枚のチケットで2回出演を観覧可能 / 20秒写メ撮り放題 ¥2,000',
+    ticket: 'https://ticketdive.com/event/HALLOWEENOSAKAIDOL1031', badge: 'LIVE'
+  },
   {
     id: '2026-11-01-aidolce-cooking-battle', status: 'published',
     date: '2026-11-01', day: 'SUN', homeUntil: '2026-11-01T15:30:00+09:00',
