@@ -28,6 +28,19 @@ appLinks.forEach((attrs) => {
 // 未解禁予定は先に unreleased で登録し、公式解禁後に詳細を追記して published へ変更する。
 // homeUntil は「ホームの次回ライブ候補から外す時刻」。特典会終了時刻を基本に設定。
 const liveEvents = [
+  { id: '2026-11-07-unreleased-1', status: 'unreleased', date: '2026-11-07', day: 'SAT', title: '未解禁', place: '', homeUntil: '2026-11-07T23:59:59+09:00' },
+  { id: '2026-11-08-unreleased-1', status: 'unreleased', date: '2026-11-08', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-08T23:59:59+09:00' },
+  { id: '2026-11-15-unreleased-1', status: 'unreleased', date: '2026-11-15', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-15T23:59:59+09:00' },
+  { id: '2026-11-17-unreleased-1', status: 'unreleased', date: '2026-11-17', day: 'TUE', title: '未解禁', place: '', homeUntil: '2026-11-17T23:59:59+09:00' },
+  { id: '2026-11-18-unreleased-1', status: 'unreleased', date: '2026-11-18', day: 'WED', title: '未解禁', place: '', homeUntil: '2026-11-18T23:59:59+09:00' },
+  { id: '2026-11-21-unreleased-1', status: 'unreleased', date: '2026-11-21', day: 'SAT', title: '未解禁', place: '', homeUntil: '2026-11-21T23:59:59+09:00' },
+  { id: '2026-11-21-unreleased-2', status: 'unreleased', date: '2026-11-21', day: 'SAT', title: '未解禁', place: '', homeUntil: '2026-11-21T23:59:59+09:00' },
+  { id: '2026-11-22-unreleased-1', status: 'unreleased', date: '2026-11-22', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-22T23:59:59+09:00' },
+  { id: '2026-11-23-unreleased-1', status: 'unreleased', date: '2026-11-23', day: 'MON', title: '未解禁', place: '', homeUntil: '2026-11-23T23:59:59+09:00' },
+  { id: '2026-11-26-unreleased-1', status: 'unreleased', date: '2026-11-26', day: 'THU', title: '未解禁', place: '', homeUntil: '2026-11-26T23:59:59+09:00' },
+  { id: '2026-11-28-unreleased-1', status: 'unreleased', date: '2026-11-28', day: 'SAT', title: '未解禁', place: '', homeUntil: '2026-11-28T23:59:59+09:00' },
+  { id: '2026-11-29-unreleased-1', status: 'unreleased', date: '2026-11-29', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-29T23:59:59+09:00' },
+  { id: '2026-11-29-unreleased-2', status: 'unreleased', date: '2026-11-29', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-29T23:59:59+09:00' },
   {
     id: '2026-11-03-akashi-niku-festa', status: 'published',
     date: '2026-11-03', day: 'TUE', homeUntil: '2026-11-03T13:05:00+09:00',
