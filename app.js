@@ -29,6 +29,14 @@ appLinks.forEach((attrs) => {
 // homeUntil は「ホームの次回ライブ候補から外す時刻」。特典会終了時刻を基本に設定。
 const liveEvents = [
   {
+    id: '2026-11-03-akashi-niku-festa', status: 'published',
+    date: '2026-11-03', day: 'TUE', homeUntil: '2026-11-03T13:05:00+09:00',
+    title: '第17回 明石肉フェスタ', place: '明石公園 西芝生広場（兵庫県）',
+    openStart: '', performance: '🎤 11:40–12:00 / 📸 12:05–13:05',
+    note: '入場無料（イベントはチケット制）',
+    ticket: 'https://timetreeapp.com/public_calendars/setsuna/events/3071829018325747750', badge: 'LIVE'
+  },
+  {
     id: '2026-09-09-show-in-osaka', status: 'published',
     date: '2026-09-09', day: 'WED', homeUntil: '2026-09-09T21:00:00+09:00',
     title: 'SHOW IN OSAKA', place: 'Live Bar BK',
