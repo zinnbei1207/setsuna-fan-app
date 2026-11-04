@@ -29,7 +29,7 @@ appLinks.forEach((attrs) => {
 // homeUntil は「ホームの次回ライブ候補から外す時刻」。特典会終了時刻を基本に設定。
 const liveEvents = [
   { id: '2026-11-07-unreleased-1', status: 'unreleased', date: '2026-11-07', day: 'SAT', title: '未解禁', place: '', homeUntil: '2026-11-07T23:59:59+09:00' },
-  { id: '2026-11-08-unreleased-1', status: 'unreleased', date: '2026-11-08', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-08T23:59:59+09:00' },
+  { id: '2026-11-08-idol-tribe-spaworld', status: 'published', date: '2026-11-08', day: 'SUN', title: 'IDOL TRIBE', place: 'スパワールド', homeUntil: '2026-11-08T17:25:00+09:00', openStart: '', performance: '🎤 16:00–16:20 / 📸 16:25–17:25', note: '観覧無料 / 前方エリア（ブロック別）¥1,000 / 撮影PASS ¥1,000 / 応援ブレスレット ¥1,000 / 撮影PASSは14:00〜販売開始・撮影にはPASSが必要', ticket: '', badge: 'LIVE' },
   { id: '2026-11-15-unreleased-1', status: 'unreleased', date: '2026-11-15', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-15T23:59:59+09:00' },
   { id: '2026-11-17-unreleased-1', status: 'unreleased', date: '2026-11-17', day: 'TUE', title: '未解禁', place: '', homeUntil: '2026-11-17T23:59:59+09:00' },
   { id: '2026-11-18-unreleased-1', status: 'unreleased', date: '2026-11-18', day: 'WED', title: '未解禁', place: '', homeUntil: '2026-11-18T23:59:59+09:00' },
