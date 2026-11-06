@@ -34,7 +34,7 @@ const liveEvents = [
   { id: '2026-11-15-unreleased-1', status: 'unreleased', date: '2026-11-15', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-15T23:59:59+09:00' },
   { id: '2026-11-17-unreleased-1', status: 'unreleased', date: '2026-11-17', day: 'TUE', title: '未解禁', place: '', homeUntil: '2026-11-17T23:59:59+09:00' },
   { id: '2026-11-18-unreleased-1', status: 'unreleased', date: '2026-11-18', day: 'WED', title: '未解禁', place: '', homeUntil: '2026-11-18T23:59:59+09:00' },
-  { id: '2026-11-21-idol-keshiki', status: 'published', date: '2026-11-21', day: 'SAT', title: 'アイドル景色', place: 'ナンバーゲート', homeUntil: '2026-11-21T23:59:59+09:00', openStart: 'OPEN 12:40 / START 13:00', performance: '', note: '一般 ¥2,000 / 入場時1D必須 / 一般販売 11/07 21:00〜 / セツナ出演・特典会時間未発表', ticket: 'https://ticketdive.com/AD1121', badge: 'LIVE' },
+  { id: '2026-11-21-idol-keshiki', status: 'published', date: '2026-11-21', day: 'SAT', title: 'アイドル景色', place: 'ナンバーゲート', homeUntil: '2026-11-21T23:59:59+09:00', openStart: 'OPEN 12:40 / START 13:00', performance: '', note: '一般 ¥2,000 / 入場時1D必須 / 一般販売 11/07 21:00〜 / セツナ出演・特典会時間未発表', ticket: 'https://ticketdive.com/event/AD1121', badge: 'LIVE' },
   { id: '2026-11-21-unreleased-2', status: 'unreleased', date: '2026-11-21', day: 'SAT', title: '未解禁', place: '', homeUntil: '2026-11-21T23:59:59+09:00' },
   { id: '2026-11-22-unreleased-1', status: 'unreleased', date: '2026-11-22', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-22T23:59:59+09:00' },
   { id: '2026-11-23-unreleased-1', status: 'unreleased', date: '2026-11-23', day: 'MON', title: '未解禁', place: '', homeUntil: '2026-11-23T23:59:59+09:00' },
