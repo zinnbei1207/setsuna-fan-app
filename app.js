@@ -43,8 +43,8 @@ const liveEvents = [
   { id: '2026-11-23-unreleased-1', status: 'unreleased', date: '2026-11-23', day: 'MON', title: '未解禁', place: '', homeUntil: '2026-11-23T23:59:59+09:00' },
   { id: '2026-11-26-unreleased-1', status: 'unreleased', date: '2026-11-26', day: 'THU', title: '未解禁', place: '', homeUntil: '2026-11-26T23:59:59+09:00' },
   { id: '2026-11-28-unreleased-1', status: 'unreleased', date: '2026-11-28', day: 'SAT', title: '未解禁', place: '', homeUntil: '2026-11-28T23:59:59+09:00' },
-  { id: '2026-11-29-unreleased-1', status: 'unreleased', date: '2026-11-29', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-29T23:59:59+09:00' },
-  { id: '2026-11-29-unreleased-2', status: 'unreleased', date: '2026-11-29', day: 'SUN', title: '未解禁', place: '', homeUntil: '2026-11-29T23:59:59+09:00' },
+  { id: '2026-11-29-mirai-kakumei-1', status: 'published', date: '2026-11-29', day: 'SUN', title: '未来革命 ①', place: '心斎橋VARON', homeUntil: '2026-11-29T10:45:00+09:00', openStart: 'OPEN 08:30 / START 08:45', performance: '🎤 09:15–09:30 / 📸 09:45–10:45', note: '優先 ¥2,500 / 一般 ¥2,000（+1D）', ticket: 'https://ticketdive.com/event/MiraiKakumei1129', badge: 'LIVE' },
+  { id: '2026-11-29-mirai-kakumei-2', status: 'published', date: '2026-11-29', day: 'SUN', title: '未来革命 ②', place: '心斎橋VARON', homeUntil: '2026-11-29T16:50:00+09:00', openStart: 'OPEN 08:30 / START 08:45', performance: '🎤 15:20–15:35 / 📸 15:50–16:50', note: '優先 ¥2,500 / 一般 ¥2,000（+1D）', ticket: 'https://ticketdive.com/event/MiraiKakumei1129', badge: 'LIVE' },
   {
     id: '2026-11-03-akashi-niku-festa', status: 'published',
     date: '2026-11-03', day: 'TUE', homeUntil: '2026-11-03T13:05:00+09:00',
