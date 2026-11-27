@@ -319,11 +319,19 @@ const liveEvents = [
     ticket: 'https://ticketdive.com/event/DaDaDa1021', badge: 'LIVE'
   },
   {
-    id: '2026-11-30-vivid-sound-circuit', status: 'published',
-    date: '2026-11-30', day: 'MON', homeUntil: '2026-11-30T23:59:59+09:00',
-    title: 'VIVID SOUND CIRCUIT', place: 'FANJ twice / アメリカ村DROP / アメリカ村BEYOND / ナンバーゲート / AtlantiQs / panhead groove',
-    openStart: 'OPEN TBS / START TBS', performance: '🎤 出演時間未定 / 📸 特典会時間未定',
-    note: '優先 ¥3,000 / 一般 ¥0 / 別途1D ¥700 / 先行抽選 10/6 22:00〜10/20 22:00 / 一般販売 10/21 20:00〜11/30 20:30 / タイムテーブル後日公開',
+    id: '2026-11-30-vivid-sound-circuit-1', status: 'published',
+    date: '2026-11-30', day: 'MON', homeUntil: '2026-11-30T14:45:00+09:00',
+    title: 'VIVID SOUND CIRCUIT ①', place: 'アメリカ村BEYOND',
+    openStart: 'OPEN 12:00 / START 13:00', performance: '🎤 13:15–13:35 / 📸 13:45–14:45（特典会H）',
+    note: '優先 ¥3,000 / 一般 ¥0 / 別途1D ¥700 / 先行抽選 10/6 22:00〜10/20 22:00 / 一般販売 10/21 20:00〜11/30 20:30',
+    ticket: 'https://ticketdive.com/event/VIVIDSOUNDCIRCUIT1130', badge: '重要LIVE'
+  },
+  {
+    id: '2026-11-30-vivid-sound-circuit-2', status: 'published',
+    date: '2026-11-30', day: 'MON', homeUntil: '2026-11-30T19:25:00+09:00',
+    title: 'VIVID SOUND CIRCUIT ②', place: 'AtlantiQs',
+    openStart: 'OPEN 12:00 / START 13:00', performance: '🎤 17:55–18:15 / 📸 18:25–19:25（特典会12）',
+    note: '優先 ¥3,000 / 一般 ¥0 / 別途1D ¥700 / 先行抽選 10/6 22:00〜10/20 22:00 / 一般販売 10/21 20:00〜11/30 20:30',
     ticket: 'https://ticketdive.com/event/VIVIDSOUNDCIRCUIT1130', badge: '重要LIVE'
   },
   {
